@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "first frame, derived filename, frame alias, terminal-relative output",
+    "explicit overwrite, invalid parameters, input protection",
+    "half-size landscape, matching custom layout, 3:4 portrait",
+    "MP4 override, codecs/duration, decode, overwrite, unchanged TOML, temp cleanup"
+  ],
+  "video": {
+    "width": 320,
+    "height": 180,
+    "frames": 105,
+    "audio_seconds": 3.5
+  }
+}

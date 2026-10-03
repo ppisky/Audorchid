@@ -1,0 +1,27 @@
+# Audorchid · simple example. Run audorchid demo first to create the original assets below.
+# Only audio is required; omitted title uses the filename, artist is optional, cover is generated.
+# Defaults: 16:9 1080p/30 fps, white progress/spectrum, no triangles, per-track -16 LUFS.
+# TOML paths resolve from this file; CLI -o uses the terminal directory; existing output needs --overwrite.
+# Frame: audorchid preview examples/audorchid.simple.en.toml --scale 0.5
+# Handoff: audorchid transition-preview examples/audorchid.simple.en.toml
+# Video: audorchid render examples/audorchid.simple.en.toml -o output/simple.mp4
+# Ratio: add [layout] before tracks, then preset = "3:4" on the next line; dimensions follow automatically.
+
+[audio.arrangement]
+enabled = true                 # false: strictly follow the written track order below.
+
+[audio.transitions]
+enabled = true                 # false: direct joins with no yellow region; true: default smart automix.
+
+[[tracks]]
+audio = "media/first.wav"
+title = "晨光 / Morning light"
+artist = "Audorchid"
+cover = "media/first.png"
+
+[[tracks]]
+audio = "media/second.wav"
+title = "月下 / Moonrise"
+artist = "Audorchid"
+cover = "media/second.png"
+gain_db = -1.0

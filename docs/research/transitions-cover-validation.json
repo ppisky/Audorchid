@@ -1,0 +1,13 @@
+{
+  "adaptive_energy_and_variable_timeline": "passed",
+  "audio_excerpt_sample_alignment": "passed",
+  "input_overwrite_and_invalid_ranges": "passed",
+  "deterministic_cover_and_bounds": "passed",
+  "png_content_with_jpg_extension": "passed",
+  "generated_cover_seed_in_toml": "passed",
+  "variable_overlap_video_full_decode": "passed",
+  "workspace_tests_passed": 28,
+  "clippy_all_targets": "passed",
+  "bilingual_examples_equal": true,
+  "rust_fmt": "passed"
+}

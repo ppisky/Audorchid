@@ -1,0 +1,27 @@
+{
+  "default_4_2s_rgb_pixels_unchanged": true,
+  "original_crossfade": {
+    "seconds": 2,
+    "curve": "equal_power",
+    "start": 14,
+    "end": 16
+  },
+  "comparison_crossfade": {
+    "seconds": 4,
+    "curve": "smooth",
+    "start": 12,
+    "end": 16,
+    "title_switch": 14
+  },
+  "video": {
+    "width": 960,
+    "height": 540,
+    "frames": 840,
+    "audio_seconds": 28.0,
+    "bytes": 1752341
+  },
+  "full_independent_decode": true,
+  "decoded_audio_first_11_5_seconds_identical": true,
+  "decoded_audio_12_5_to_13_5_seconds_different": true,
+  "audio_excerpts": "Both excerpts cover global 10-18 seconds; presentation defaults are unchanged."
+}

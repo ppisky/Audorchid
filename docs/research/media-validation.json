@@ -1,0 +1,46 @@
+{
+  "bilingual_equivalent": true,
+  "cases": [
+    {
+      "preset": "16:9",
+      "width": 640,
+      "height": 360,
+      "frames": 105,
+      "audio_samples": 154350,
+      "decode": "pass"
+    },
+    {
+      "preset": "9:16",
+      "width": 360,
+      "height": 640,
+      "frames": 105,
+      "audio_samples": 154350,
+      "decode": "pass"
+    },
+    {
+      "preset": "3:4",
+      "width": 360,
+      "height": 480,
+      "frames": 105,
+      "audio_samples": 154350,
+      "decode": "pass"
+    },
+    {
+      "preset": "1:1",
+      "width": 360,
+      "height": 360,
+      "frames": 105,
+      "audio_samples": 154350,
+      "decode": "pass"
+    }
+  ],
+  "custom_and_deterministic_preview": true,
+  "aac_impulses": {
+    "valid_samples": 96017,
+    "decoder_samples_including_final_frame_padding": 96256,
+    "impulse_offsets_samples": [
+      0,
+      0
+    ]
+  }
+}

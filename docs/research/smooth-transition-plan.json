@@ -1,0 +1,153 @@
+{
+  "name": "Audorchid · smooth transition comparison",
+  "width": 1920,
+  "height": 1080,
+  "fps_num": 30,
+  "fps_den": 1,
+  "frames": 840,
+  "timeline": {
+    "sample_rate": 48000,
+    "overlap": 192000,
+    "tracks": [
+      {
+        "start": 0,
+        "length": 768000
+      },
+      {
+        "start": 576000,
+        "length": 768000
+      }
+    ],
+    "total_samples": 1344000
+  },
+  "chapter_starts": [
+    0,
+    672000
+  ],
+  "layout": {
+    "cover": [
+      130.0,
+      170.0,
+      620.0,
+      620.0
+    ],
+    "title": [
+      870.0,
+      340.0,
+      920.0,
+      84.0
+    ],
+    "artist": [
+      870.0,
+      438.0,
+      920.0,
+      46.0
+    ],
+    "waveform": [
+      130.0,
+      900.0,
+      1660.0,
+      130.0
+    ],
+    "progress": [
+      870.0,
+      588.0,
+      772.7999877929688,
+      4.0
+    ],
+    "time": [
+      870.0,
+      608.0,
+      772.7999877929688,
+      30.0
+    ],
+    "title_size": 70.0,
+    "artist_size": 36.0,
+    "time_size": 22.0
+  },
+  "attenuation_db": 0.0,
+  "loudness": {
+    "tracks": [
+      {
+        "input": {
+          "integrated_lufs": -14.951072221161462,
+          "true_peak_dbtp": -1.9356539718592105
+        },
+        "normalization_gain_db": -1.0489277788385376,
+        "manual_gain_db": 0.0
+      },
+      {
+        "input": {
+          "integrated_lufs": -14.360410812535672,
+          "true_peak_dbtp": -1.931306844917682
+        },
+        "normalization_gain_db": -1.6395891874643276,
+        "manual_gain_db": -1.0
+      }
+    ],
+    "mix_before": {
+      "integrated_lufs": -16.433249931075583,
+      "true_peak_dbtp": -2.9845828199057918
+    },
+    "output": {
+      "integrated_lufs": -16.433249931075583,
+      "true_peak_dbtp": -2.9845828199057918
+    },
+    "normalization_gain_db": 0.0,
+    "peak_attenuation_db": 0.0,
+    "target_lufs": -16.0
+  },
+  "arrangement": {
+    "mode": "configuration",
+    "order": [
+      0,
+      1
+    ],
+    "features": [],
+    "analysis_seconds": 15.0
+  },
+  "video_settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps_num": 30,
+    "fps_den": 1,
+    "bitrate_kbps": 8000,
+    "keyframe_interval": 60,
+    "rate_control": "quality",
+    "quality_qp": 18
+  },
+  "audio_settings": {
+    "sample_rate": 48000,
+    "bitrate_kbps": 192,
+    "crossfade_seconds": 4.0,
+    "crossfade_curve": "smooth",
+    "crossfade_shape": 1.0,
+    "gain_db": 0.0,
+    "peak_ceiling_db": -1.0,
+    "loudness": {
+      "mode": "track",
+      "target_lufs": -16.0,
+      "max_gain_db": 12.0
+    },
+    "arrangement": {
+      "mode": "configuration",
+      "analysis_seconds": 15.0,
+      "keep_first": false,
+      "energy_curve": [
+        0.2,
+        0.65,
+        1.0,
+        0.4
+      ],
+      "energy_weight": 1.0,
+      "tempo_weight": 0.35,
+      "brightness_weight": 0.25,
+      "transition_weight": 0.75
+    }
+  },
+  "codecs": {
+    "video": "h264",
+    "audio": "aac-lc",
+    "container": "mp4"
+  }
+}

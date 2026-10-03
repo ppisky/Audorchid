@@ -1,0 +1,56 @@
+{
+  "presets": [
+    {
+      "ratio": "16:9",
+      "preview": [
+        960,
+        540
+      ],
+      "bars": 80,
+      "visible_stripes": 80,
+      "reference_width": 1660.0
+    },
+    {
+      "ratio": "9:16",
+      "preview": [
+        540,
+        960
+      ],
+      "bars": 40,
+      "visible_stripes": 40,
+      "reference_width": 840.0
+    },
+    {
+      "ratio": "1:1",
+      "preview": [
+        540,
+        540
+      ],
+      "bars": 43,
+      "visible_stripes": 43,
+      "reference_width": 900.0
+    },
+    {
+      "ratio": "3:4",
+      "preview": [
+        540,
+        720
+      ],
+      "bars": 43,
+      "visible_stripes": 43,
+      "reference_width": 900.0
+    }
+  ],
+  "explicit_fixed_simple_complete_rgb_identical": true,
+  "default_smart_and_explicit_fixed_demo": true,
+  "automatic_order": [
+    1,
+    0
+  ],
+  "explicit_order": [
+    0,
+    1
+  ],
+  "only_audio_required_and_embedded_fonts": true,
+  "manual_count_override": true
+}

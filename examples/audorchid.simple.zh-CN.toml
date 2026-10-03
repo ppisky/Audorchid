@@ -1,0 +1,27 @@
+# 音兰 · 简洁示例。先运行 audorchid demo 生成下面的原创素材。
+# 只要求 audio；标题省略用文件名，作者可省略，封面省略则自动生成。
+# 默认 16:9 1080p/30 fps、白色进度/频谱、无三角形、逐曲 -16 LUFS。
+# TOML 路径相对于此文件；CLI -o 相对于终端目录；已有输出需 --overwrite。
+# 首帧：audorchid preview examples/audorchid.simple.zh-CN.toml --scale 0.5
+# 衔接：audorchid transition-preview examples/audorchid.simple.zh-CN.toml
+# 成片：audorchid render examples/audorchid.simple.zh-CN.toml -o output/simple.mp4
+# 换比例：在歌曲前加入 [layout]，下一行 preset = "3:4"；尺寸会自动匹配。
+
+[audio.arrangement]
+enabled = true                 # false：严格按下面歌曲的书写顺序播放。
+
+[audio.transitions]
+enabled = true                 # false：直接拼接，没有黄色区；true：默认 smart 自动衔接。
+
+[[tracks]]
+audio = "media/first.wav"
+title = "晨光 / Morning light"
+artist = "Audorchid"
+cover = "media/first.png"
+
+[[tracks]]
+audio = "media/second.wav"
+title = "月下 / Moonrise"
+artist = "Audorchid"
+cover = "media/second.png"
+gain_db = -1.0

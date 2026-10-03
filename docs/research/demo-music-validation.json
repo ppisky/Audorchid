@@ -1,0 +1,52 @@
+[
+  {
+    "name": "first",
+    "sample_rate": 44100,
+    "seconds": 16,
+    "peak": 0.799957275390625,
+    "rms": 0.1552826878426495,
+    "dc": 0.0004663756969564356,
+    "sha256": "b69decd7846cce4d735d6b03cbf0484c4b8d67b6d82a043e7cf8be3f8135c5b4",
+    "midi": {
+      "format": 1,
+      "tracks": 5,
+      "ppq": 480,
+      "bpm": 120.0,
+      "note_events": 233,
+      "distinct_pitches": 26,
+      "end_ticks": [
+        15360,
+        15360,
+        15360,
+        15360,
+        15360
+      ]
+    },
+    "deterministic": true
+  },
+  {
+    "name": "second",
+    "sample_rate": 48000,
+    "seconds": 16,
+    "peak": 0.799957275390625,
+    "rms": 0.16594050667135302,
+    "dc": 0.0004958472847938538,
+    "sha256": "c804a8f6f4bbb6da3d9def53f0964abc342d47c5b9fb6931ccf2dcb9f6776b86",
+    "midi": {
+      "format": 1,
+      "tracks": 5,
+      "ppq": 480,
+      "bpm": 120.0,
+      "note_events": 233,
+      "distinct_pitches": 26,
+      "end_ticks": [
+        15360,
+        15360,
+        15360,
+        15360,
+        15360
+      ]
+    },
+    "deterministic": true
+  }
+]

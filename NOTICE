@@ -1,0 +1,24 @@
+Audorchid (音兰)
+Copyright 2026 Audorchid contributors
+
+Audorchid's original code and documentation are licensed under the Apache
+License, Version 2.0. This notice does not change any license terms.
+
+Third-party components retain their own licenses. In particular:
+- GPUI / gpui-fusion: Apache-2.0; see the pinned dependency and its notices.
+- Roboto: Copyright Google; Apache-2.0. See assets/fonts/Roboto-LICENSE.txt.
+- Dream Han CJK: SIL Open Font License 1.1. See assets/fonts/DreamHan-OFL.txt.
+- fdk-aac Rust wrapper: MIT; see vendor/fdk-aac/LICENSE.
+  Audorchid modifies its encoder to correct buffer byte sizes and expose EOF.
+- Fraunhofer FDK AAC Codec Library: its own license, not Apache-2.0 or MIT.
+  See licenses/FDK-AAC-NOTICE.txt and docs/dependencies-and-licensing.md.
+- ebur128: MIT; see licenses/third-party/ebur128-0.1.10/LICENSE.
+
+The Apple Music demo and osu projects informed the architecture and visual
+design. LiveSort was inspected as a reference; no LiveSort code is included.
+VLC's visual effects were read as a reference; no VLC code is included.
+The YUV conversion in Audorchid is an independent implementation.
+
+Binary redistributions must include the applicable third-party notices and
+comply with the FDK library's source availability requirements. An Apache-2.0
+license for Audorchid does not grant third-party codec patent rights.

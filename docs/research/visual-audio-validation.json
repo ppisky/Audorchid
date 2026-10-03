@@ -1,0 +1,60 @@
+{
+  "loudness": {
+    "pre_aac": {
+      "tracks": [
+        {
+          "input": {
+            "integrated_lufs": -19.9932111936663,
+            "true_peak_dbtp": -19.999469871546843
+          },
+          "normalization_gain_db": 0.0,
+          "manual_gain_db": 0.0
+        }
+      ],
+      "mix_before": {
+        "integrated_lufs": -19.9932111936663,
+        "true_peak_dbtp": -19.999469871546843
+      },
+      "output": {
+        "integrated_lufs": -16.000000248110567,
+        "true_peak_dbtp": -16.006258727163644
+      },
+      "normalization_gain_db": 3.9932111936663013,
+      "peak_attenuation_db": 0.0,
+      "target_lufs": -16.0
+    },
+    "ffmpeg_decoded_aac_lufs": -16.0,
+    "ffmpeg_decoded_aac_true_peak": -12.1
+  },
+  "peak_limited": {
+    "tracks": [
+      {
+        "input": {
+          "integrated_lufs": -38.62298981731394,
+          "true_peak_dbtp": -1.9383327973301165
+        },
+        "normalization_gain_db": 0.0,
+        "manual_gain_db": 0.0
+      }
+    ],
+    "mix_before": {
+      "integrated_lufs": -38.62298981731394,
+      "true_peak_dbtp": -1.9383327973301165
+    },
+    "output": {
+      "integrated_lufs": -37.68465731000633,
+      "true_peak_dbtp": -1.0000002900227403
+    },
+    "normalization_gain_db": 12.0,
+    "peak_attenuation_db": -11.061667202669884,
+    "target_lufs": -5.0
+  },
+  "visual_modes": [
+    "scope",
+    "envelope",
+    "custom_color",
+    "white"
+  ],
+  "silence_hidden_before_and_after": true,
+  "deterministic_seek": true
+}

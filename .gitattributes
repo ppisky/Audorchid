@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.ttf binary
+*.crate binary
+*.png binary
+*.jpg binary
+*.wav binary
+*.flac binary
+# Preserve provenance hashes and upstream notice bytes exactly.
+licenses/** -text
+assets/fonts/*.txt -text

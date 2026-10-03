@@ -1,0 +1,9 @@
+{
+  "sample_rate": 48000,
+  "valid_samples": 96017,
+  "join_sample": 48013,
+  "join_seconds": 1.0002708333333334,
+  "decoded_aac_identical": true,
+  "decoded_pcm_sha256": "957e35652486fd390cbe4ffbe626366923f4840e19e5918d9839e5b7fb46feb6",
+  "scope": "lossless stereo WAV, identical sample rates, crossfade=0, loudness=off; decoder tail padding retained equally"
+}

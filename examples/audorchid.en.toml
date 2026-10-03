@@ -1,0 +1,211 @@
+# Audorchid · English configuration example (schema 1)
+# For a first run, execute these commands from the repository root:
+#   cargo run --release -- demo
+#   cargo run --release -- check examples/audorchid.en.toml
+#   cargo run --release -- preview examples/audorchid.en.toml
+#   cargo run --release -- render examples/audorchid.en.toml
+# demo creates the two original 16-second compositions, MIDI scores and covers (no external songs or samples) referenced below.
+# For your own video: change output.path, then audio/title/artist/cover in each track.
+# For everyday use start with audorchid.simple.en.toml; omitted settings use the defaults below.
+# Relative paths IN TOML resolve from this TOML's folder, not the terminal's directory.
+# preview saves the first frame to output/audorchid.preview.png, without video encoding; use --overwrite to replace it.
+# Temporary preview: preview examples/audorchid.en.toml --seconds 4.2 --scale 0.5 -o output/preview.png
+# Temporary video filename: render examples/audorchid.en.toml -o output/my-video.mp4
+# CLI -o/--output resolves from the terminal directory. --scale reduces resolution without editing this TOML.
+# On Windows prefer "D:/Music/song.flac" to avoid backslash escape sequences.
+# Lines starting with # are comments. Keep field names unchanged; edit quoted text freely.
+
+schema_version = 1                       # Configuration format version. Keep this at 1.
+name = "Audorchid Demo"                  # Project name shown by the inspect command.
+
+[output]
+path = "../output/audorchid.mp4"          # Destination .mp4 file. Parent folders are created.
+overwrite = false                       # false refuses existing files. Use true to replace deliberately.
+
+[layout]
+preset = "16:9"                          # Four built-in layouts: "16:9", "9:16", "1:1", "3:4".
+# Each preset fixes cover, title, artist, waveform, progress and time positions.
+# Scaling to another resolution of the SAME ratio scales positions and fonts together.
+# When changing preset, also change width/height below:
+#   16:9 → width = 1920, height = 1080 (landscape; 960x540 for a faster preview)
+#   9:16 → width = 1080, height = 1920 (portrait; 540x960 for a faster preview)
+#   1:1  → width = 1080, height = 1080 (square; 540x540 for a faster preview)
+#   3:4  → width = 1080, height = 1440 (portrait; 540x720 for a faster preview)
+progress_position = "under_artist_lower" # Default: same metadata alignment, a little lower. "under_artist" restores the higher bar.
+# "attached" joins the visualizer baseline; "above" is above the bottom visualizer. Legacy "cover_side" aliases under_artist_lower.
+# progress_offset = [0.0, 24.0]         # Move bar AND time [right, down]; scaled from a 1080-pixel short edge. Zero X preserves alignment.
+visualizer_position = "bottom"           # "bottom": canvas bottom; "under_artist": compact metadata area.
+# Presets already supply suitable sizes. Optional [width factor, height factor], each 0.25..1.0:
+# visualizer_scale = [0.8, 0.7]           # 80% width, 70% height; keep its left edge and baseline fixed.
+# progress_scale = [0.8, 1.0]          # Scale bar width/height; the time/counter row shares its left and right edges.
+# Omit progress_position for auto: under_artist_lower for built-in layouts, literal coordinates for custom.
+# To define your own positions use preset = "custom" plus [layout.custom].
+# See docs/configuration.md. Built-in presets must not include [layout.custom].
+
+[video]
+width = 1920                            # Width in pixels. Must be even.
+height = 1080                           # Height in pixels. Must match the preset's exact ratio.
+fps_num = 30                            # Frame rate = fps_num / fps_den. 30/1 means 30 fps.
+fps_den = 1                             # Usually 1. For 29.97 fps use 30000/1001.
+bitrate_kbps = 8000                     # Target in kb/s for bitrate mode; quality mode uses QP below instead.
+rate_control = "quality"                # "quality": consistent detail; "bitrate": target file size/bandwidth.
+quality_qp = 18                          # Quality mode: 0..51, lower is sharper/larger. Start at 18; try 16 for fine text.
+# Rendering and text rasterization use the full output resolution. Only the backdrop is deliberately blurred.
+keyframe_interval = 60                  # Keyframe interval in VIDEO FRAMES; 60 at 30 fps is 2 seconds.
+# The first version always exports H.264, BT.709 limited, I420 (4:2:0).
+
+[audio]
+sample_rate = 48000                      # Output sample rate in Hz; either 48000 or 44100.
+bitrate_kbps = 192                       # Stereo AAC-LC bitrate in kb/s; range 32..320.
+crossfade_seconds = 2.0                  # Fixed-mode duration; 0.0 disables overlaps in ALL modes. In smart mode any nonzero value enables planning.
+crossfade_curve = "equal_power"         # "equal_power": default; "smooth": softer equal-power start/end; "linear": linear gains.
+crossfade_shape = 1.0                    # Shape 0.25..4: 1 keeps the base curve, >1 concentrates at midpoint, <1 blends earlier.
+# Two 16-second tracks with a 2-second overlap produce 16 + 16 - 2 = 30 seconds.
+# Try crossfade_seconds = 4.0 and crossfade_curve = "smooth" for a longer blend; longer is not better for every song.
+# equal_power/smooth suit different songs; linear can avoid a midpoint gain boost for highly correlated recordings.
+# Overlaps must fit each track. A middle track must fit BOTH neighbouring overlaps.
+# Invalid overlaps are errors, never silently shortened.
+# Zero overlap ignores fade curves. Covers blend and titles switch at midpoint; yellow marks the actual overlap interval.
+# Playback order is controlled by audio.arrangement; smart plans overlaps, fixed uses the duration above.
+# For an already gapless album, use 0.0 and loudness.mode = "off" or "program" to preserve relative track levels.
+gain_db = 0.0                           # Manual programme gain in dB: 0 unchanged, -3 quieter, +3 louder.
+peak_ceiling_db = -1.0                   # PRE-ENCODE true-peak ceiling in dBTP, measured with 4x oversampling.
+# Peak protection attenuates the whole mix; no hard clipping or dynamics compression.
+# AAC encoding may change peaks; this is not a post-encode ceiling. Mono is duplicated to stereo; other channel counts fail.
+# Different input sample rates are resampled automatically.
+
+# ---- Playlist order: change only mode to enable automatic sequencing ----
+[audio.arrangement]
+enabled = true                       # true enables sequencing; false keeps TOML order and takes precedence over mode.
+mode = "automatic"                      # Default "automatic": analyse decoded music and reorder; "configuration": EXACT TOML order.
+analysis_seconds = 15.0                  # Analyse up to 15 seconds at EACH end (1..60). This is NOT the crossfade length.
+keep_first = false                      # Automatic mode: true keeps the first TOML song as the opener.
+energy_curve = [0.2, 0.65, 1.0, 0.4]     # Relative low → build → peak → settle, 2..32 values in 0..1.
+# Optional cost weights; normally keep the defaults:
+# energy_weight = 1.0                    # Follow the energy curve after per-track loudness/gain.
+# transition_weight = 0.75              # Match outgoing/incoming RMS levels.
+# tempo_weight = 0.35                   # Prefer similar estimated tempos, including half/double time.
+# brightness_weight = 0.25              # Match spectral brightness between adjacent ends.
+# inspect reports zero-based source indices and measurements. Estimates can be uncertain; no beat matching/time stretching.
+# Sequencing chooses order; the independent transitions settings below choose how tracks mix.
+
+# Omit this entire table for the everyday smart defaults.
+# This demo explicitly uses fixed to retain its composed one-bar blend and 30-second duration.
+# smart: detect quiet tails/intros, enter earlier, match local loudness, smooth gain/tone/ambience.
+# adaptive: previous length-only search. fixed: configured duration and fade curve.
+[audio.transitions]
+enabled = true                       # false disables all overlaps/effects: direct joins and no yellow progress region.
+mode = "fixed"                       # Project default is smart; fixed here is intentional for this demo.
+min_seconds = 4.0                    # Minimum automatic overlap in seconds; short clips are safely capped.
+max_seconds = 24.0                   # Maximum overlap in seconds (<=60); increase for unusually long quiet tails.
+analysis_seconds = 40.0              # Endpoint scan in seconds; >= max_seconds, at most 120.
+tail_threshold_db = -24.0            # Continuous low-energy tail threshold relative to active endpoint level.
+fade_threshold_db = -6.0             # Fading tail / quiet intro threshold; -12..-1 dB.
+max_gain_db = 3.0                    # Smart local matching/compensation cap, 0..6 dB; silence is never boosted without bound.
+tone_strength = 0.35                # Frequency handoff strength 0..1; 0 disables it.
+reverb_mix = 0.08                   # Subtle stereo diffusion, 0..0.25; 0 disables it.
+release_seconds = 1.0               # Smooth effect entry/release time in seconds, 0.1..4.
+
+# ---- Common loudness settings: normally keep these three values ----
+[audio.loudness]
+mode = "track"                          # "track": each song; "program": complete mix; "off": no automatic loudness gain.
+target_lufs = -16.0                      # Target integrated loudness (LUFS). More negative = quieter. Our default is -16.
+max_gain_db = 12.0                       # Maximum automatic boost, preventing excessive gain on very quiet recordings.
+# LUFS is not peak level. Peak protection wins; dynamic music may remain below target. Inspect reports actual levels.
+# Silence or clips shorter than 400 ms have no reliable integrated reading and are not automatically boosted.
+# Order: trim/resample → per-track LUFS (track mode) → track gain_db → optional arrangement → crossfade/mix
+#        → programme LUFS (program mode) → master gain_db above → true-peak protection.
+# Track mode retains manual track offsets; program mode retains relative loudness between songs.
+# Silence, duration and tempo are preserved. Omitting loudness defaults to track; select off/program explicitly for gapless albums.
+
+# ---- Common visual choices (none of these changes the sound) ----
+[visual]
+waveform = false                        # Enable waveform; choose its appearance in waveform_style below.
+spectrum = true                         # Enable spectrum; enabling both divides the visualizer area into two sections.
+triangles = 0                           # Off by default. Try 48–72 to enable; maximum 256. Appearance is configured below.
+seed = 673742                           # Fixed initial distribution; another integer gives different positions.
+# Waveforms and spectra disappear with no valid audio or sustained silence: no fake bars, caps or centre line.
+
+# ---- Advanced appearance: safe to leave everything below unchanged ----
+[visual.progress_style]
+scope = "track"                         # Current song: elapsed/duration switch with title; "program" shows the whole video.
+# During handoff, the incoming song has already played during its fade; its timer reflects that actual position.
+color = "#FFFFFF"                       # White played portion by default; change to any #RRGGBB, e.g. #B8AFDE.
+track_color = "#FFFFFF"                 # Unplayed portion, combined with the opacity below.
+track_opacity = 0.15
+show_overlap = true                     # Yellow spans show actual mixed samples, not analysis windows or chapter ticks.
+overlap_color = "#EAC768"
+overlap_opacity = 0.80
+corner_radius = 2.0                     # Radius in reference pixels; 0 square; clamped to half the bar height.
+show_counter = true                     # Hide the song counter with false.
+counter_right_inset = 0.0               # 0 aligns its visible right edge to the bar; positive moves it inward.
+
+[visual.artwork_style]
+corner_radius = 24.0                    # Slightly rounder default cover; 0 makes square corners. Scales with the short edge / 1080.
+border_width = 3.0                      # 0 removes the subtle cover border.
+background_blur = 18.0                  # Backdrop only, sigma on the 96x96 working image (0..48). The cover is never blurred.
+
+[visual.triangle_style]
+preset = "layered"                      # "layered": varied filled shades/sizes; "border": uniform size with adjustable border thickness.
+# These settings do not enable triangles when the count above is 0. Change preset alone with mode kept on auto.
+mode = "auto"                           # auto follows the preset; force filled, outline, or both (fill plus outline) if desired.
+color_light = "#343943"                 # Second colour: random shades for layered; top-to-bottom gradient for border; equal colours disable it.
+color = "#080A10"                        # Triangle colour, exactly #RRGGBB; near-black by default.
+opacity = 0.28                          # Opacity 0..1; higher is more visible, overlapping regions become darker.
+min_size = 100.0                        # Layered minimum edge length, scaled relative to a 1080-pixel SHORT canvas edge.
+max_size = 360.0                        # Layered maximum edge length; upright equilateral triangles, no random rotation.
+speed = 24.0                            # Base upward speed in pixels/second; 0 is still. Large triangles move faster.
+stroke_width = 1.5                      # Layered outline/both width; the border preset uses thickness instead.
+# size = 120.0                         # Uniform border-preset edge length, independent of min_size/max_size.
+# thickness = 0.04                     # Border thickness 0..1: 0 hides, 1 fills; usually 0.02–0.12.
+music_reactivity = 0.15                  # Relative audio energy contribution to opacity, 0 disables; range 0..1.
+
+[visual.spectrum_style]
+color = "#FFFFFF"                       # Wider white bars by default; change just this value, e.g. "#B9DCEC".
+corner_radius = 0.0                    # Spectrum corner radius; 0 retains square bars.
+bar_width = 14.5                        # Adaptive target bar width at a 1080-pixel short edge. Larger means fewer bars.
+# bars = 80                            # Optional fixed count 8..256; writing this disables adaptive count and ignores bar_width.
+# Default counts follow the region: 16:9 = 80, 9:16 = 40, 1:1 and 3:4 = 43. Proportional preview scaling retains counts.
+gap = 0.30                              # Empty fraction of each slot, 0..0.9; lower makes bars thicker/tighter, higher makes gaps wider.
+peak_caps = false                       # Optional same-colour peak marks; off by default for clean bars.
+floor_db = -60.0                        # Lowest displayed magnitude (dBFS); 0 dBFS is the top. Lower reveals quieter signals.
+release_ms = 180.0                      # Full-height-to-zero bar fall time in milliseconds; 0 falls immediately.
+peak_hold_ms = 250.0                    # Peak mark hold time in milliseconds, visible only with peak_caps=true.
+peak_fall_ms = 800.0                    # Peak mark full-height fall time in milliseconds.
+# Spectrum spans 30 Hz–16 kHz on a logarithmic axis. Channels are analysed separately, retaining opposite-phase stereo.
+
+[visual.waveform_style]
+mode = "scope"                          # "scope": signed L/R oscilloscope; "envelope": six seconds either side of now.
+color = "#FFFFFF"                       # Waveform colour, exactly #RRGGBB.
+window_ms = 40.0                        # Scope only: show the most recent 5..200 milliseconds of real PCM.
+gain = 1.5                              # Visual amplitude only, not audio gain; excessive values flatten at display bounds.
+line_width = 1.5                        # Scope only: line width, scaled relative to a 1080-pixel short canvas edge.
+# Envelope: bright half is past, dim half is future; silence and out-of-range audio have no placeholder dots.
+
+[fonts]
+latin = "../assets/fonts/Roboto-Regular.ttf"       # Latin text and numbers, with tabular numerals enabled.
+cjk = "../assets/fonts/DreamHanSansCN-W10.ttf"      # CJK text and full-width punctuation only.
+# Both fonts and their licenses are included. Custom fonts: supply TTF/OTF paths.
+# Only the first face in a font file is used in this version.
+# Omit the entire fonts table to use these two fonts embedded in the executable; each explicit path overrides its bundled font.
+# Missing glyphs or explicitly specified missing font files are errors, without silent substitution.
+
+# Each [[tracks]] block adds a track. Written order is used in configuration mode; automatic mode may reorder.
+# To add another track, copy a whole block to the end and edit its values.
+[[tracks]]
+audio = "media/first.wav"                # Required local audio file. Lossless WAV/FLAC recommended.
+cover = "media/first.png"
+# cover_seed = 42  # Optional when cover is omitted: procedural variation, same seed as CLI cover.                # Optional PNG/JPEG, centre-cropped to a square. Omit for generated artwork.
+title = "晨光 / Morning light"           # Optional title; omit to use the filename. Built-in layouts truncate overflow with ... .
+artist = "Audorchid"                     # Artist/performer; an empty string "" is allowed.
+trim_start_seconds = 0.0                 # Start position in SOURCE seconds. 0.0 starts at the beginning.
+# trim_end_seconds = 8.0                 # Optional SOURCE end position, not duration. Omit to use the full remainder.
+gain_db = 0.0                           # Manual gain after per-track LUFS adjustment; 0 unchanged, -1 makes this track a little quieter.
+
+[[tracks]]
+audio = "media/second.wav"
+cover = "media/second.png"
+title = "月下 / Moonrise"
+artist = "Audorchid"
+trim_start_seconds = 0.0
+gain_db = -1.0

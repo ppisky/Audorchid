@@ -1,0 +1,24 @@
+[package]
+name = "audorchid-export"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "audorchid"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+audorchid-core.workspace = true
+audorchid-audio.workspace = true
+audorchid-render.workspace = true
+image.workspace = true
+serde_json.workspace = true
+clap = { version = "4", features = ["derive"] }
+openh264 = "=0.9.8"
+muxide = "=0.2.5"
+tempfile = "3"

@@ -1,0 +1,17 @@
+[package]
+name = "audorchid-render"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+audorchid-core.workspace = true
+audorchid-audio.workspace = true
+gpui.workspace = true
+gpui_wgpu.workspace = true
+image.workspace = true
+ttf-parser = "0.25"

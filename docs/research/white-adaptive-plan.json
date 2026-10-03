@@ -1,0 +1,248 @@
+{
+  "name": "Audorchid",
+  "width": 1920,
+  "height": 1080,
+  "fps_num": 30,
+  "fps_den": 1,
+  "frames": 900,
+  "timeline": {
+    "sample_rate": 48000,
+    "overlap": 96000,
+    "tracks": [
+      {
+        "start": 0,
+        "length": 768000
+      },
+      {
+        "start": 672000,
+        "length": 768000
+      }
+    ],
+    "total_samples": 1440000
+  },
+  "chapter_starts": [
+    0,
+    720000
+  ],
+  "layout": {
+    "cover": [
+      130.0,
+      170.0,
+      620.0,
+      620.0
+    ],
+    "title": [
+      870.0,
+      340.0,
+      920.0,
+      84.0
+    ],
+    "artist": [
+      870.0,
+      438.0,
+      920.0,
+      46.0
+    ],
+    "waveform": [
+      130.0,
+      900.0,
+      1660.0,
+      130.0
+    ],
+    "progress": [
+      870.0,
+      588.0,
+      772.7999877929688,
+      4.0
+    ],
+    "time": [
+      870.0,
+      608.0,
+      772.7999877929688,
+      30.0
+    ],
+    "title_size": 70.0,
+    "artist_size": 36.0,
+    "time_size": 22.0
+  },
+  "spectrum_settings": {
+    "corner_radius": 0.0,
+    "palette": "solid",
+    "color": "#FFFFFF",
+    "bars": 80,
+    "bar_width": 14.5,
+    "gap": 0.30000001192092896,
+    "peak_caps": false,
+    "floor_db": -60.0,
+    "release_ms": 180.0,
+    "peak_hold_ms": 250.0,
+    "peak_fall_ms": 800.0
+  },
+  "visual_settings": {
+    "waveform": false,
+    "spectrum": true,
+    "triangles": 0,
+    "seed": 673742,
+    "triangle_style": {
+      "preset": "layered",
+      "mode": "auto",
+      "color": "#080A10",
+      "color_light": "#343943",
+      "opacity": 0.2800000011920929,
+      "min_size": 100.0,
+      "max_size": 360.0,
+      "speed": 24.0,
+      "stroke_width": 1.5,
+      "music_reactivity": 0.15000000596046448,
+      "size": 120.0,
+      "thickness": 0.03999999910593033
+    },
+    "spectrum_style": {
+      "corner_radius": 0.0,
+      "palette": "solid",
+      "color": "#FFFFFF",
+      "bars": null,
+      "bar_width": 14.5,
+      "gap": 0.30000001192092896,
+      "peak_caps": false,
+      "floor_db": -60.0,
+      "release_ms": 180.0,
+      "peak_hold_ms": 250.0,
+      "peak_fall_ms": 800.0
+    },
+    "waveform_style": {
+      "mode": "scope",
+      "color": "#FFFFFF",
+      "window_ms": 40.0,
+      "gain": 1.5,
+      "line_width": 1.5
+    },
+    "progress_style": {
+      "scope": "track",
+      "color": "#FFFFFF",
+      "track_color": "#FFFFFF",
+      "track_opacity": 0.15000000596046448,
+      "overlap_color": "#EAC768",
+      "overlap_opacity": 0.800000011920929,
+      "show_overlap": true,
+      "corner_radius": 2.0,
+      "show_counter": true,
+      "counter_right_inset": 0.0
+    },
+    "artwork_style": {
+      "corner_radius": 24.0,
+      "border_width": 3.0,
+      "background_blur": 18.0
+    }
+  },
+  "attenuation_db": 0.0,
+  "loudness": {
+    "tracks": [
+      {
+        "input": {
+          "integrated_lufs": -14.951072221161462,
+          "true_peak_dbtp": -1.9356539718592105
+        },
+        "normalization_gain_db": -1.0489277788385376,
+        "manual_gain_db": 0.0
+      },
+      {
+        "input": {
+          "integrated_lufs": -14.360410812535672,
+          "true_peak_dbtp": -1.931306844917682
+        },
+        "normalization_gain_db": -1.6395891874643276,
+        "manual_gain_db": -1.0
+      }
+    ],
+    "mix_before": {
+      "integrated_lufs": -16.350325151303203,
+      "true_peak_dbtp": -2.9845828199057918
+    },
+    "output": {
+      "integrated_lufs": -16.350325151303203,
+      "true_peak_dbtp": -2.9845828199057918
+    },
+    "normalization_gain_db": 0.0,
+    "peak_attenuation_db": 0.0,
+    "target_lufs": -16.0
+  },
+  "arrangement": {
+    "mode": "automatic",
+    "order": [
+      1,
+      0
+    ],
+    "features": [
+      {
+        "head": {
+          "rms_db": -17.148865329376875,
+          "centroid_hz": 1191.7845264609784,
+          "tempo_bpm": 60.0
+        },
+        "tail": {
+          "rms_db": -17.28628479149871,
+          "centroid_hz": 1225.9234210985403,
+          "tempo_bpm": 60.0
+        }
+      },
+      {
+        "head": {
+          "rms_db": -18.12723777087525,
+          "centroid_hz": 1119.4164218308906,
+          "tempo_bpm": 60.0
+        },
+        "tail": {
+          "rms_db": -18.30272048719167,
+          "centroid_hz": 1165.758073394776,
+          "tempo_bpm": 60.0
+        }
+      }
+    ],
+    "analysis_seconds": 15.0
+  },
+  "video_settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps_num": 30,
+    "fps_den": 1,
+    "bitrate_kbps": 8000,
+    "keyframe_interval": 60,
+    "rate_control": "quality",
+    "quality_qp": 18
+  },
+  "audio_settings": {
+    "sample_rate": 48000,
+    "bitrate_kbps": 192,
+    "crossfade_seconds": 2.0,
+    "crossfade_curve": "equal_power",
+    "crossfade_shape": 1.0,
+    "gain_db": 0.0,
+    "peak_ceiling_db": -1.0,
+    "loudness": {
+      "mode": "track",
+      "target_lufs": -16.0,
+      "max_gain_db": 12.0
+    },
+    "arrangement": {
+      "mode": "automatic",
+      "analysis_seconds": 15.0,
+      "keep_first": false,
+      "energy_curve": [
+        0.2,
+        0.65,
+        1.0,
+        0.4
+      ],
+      "energy_weight": 1.0,
+      "tempo_weight": 0.35,
+      "brightness_weight": 0.25,
+      "transition_weight": 0.75
+    }
+  },
+  "codecs": {
+    "video": "h264",
+    "audio": "aac-lc",
+    "container": "mp4"
+  }
+}

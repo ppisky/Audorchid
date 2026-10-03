@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/RustAudio/dasp/221b81038c528bf3fc364a8ab5cc4b2e52f7dbfc/LICENSE-MIT
+Pinned by the published crate .cargo_vcs_info.json.

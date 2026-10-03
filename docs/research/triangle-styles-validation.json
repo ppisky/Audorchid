@@ -1,0 +1,12 @@
+{
+  "default_off": true,
+  "style_does_not_enable": true,
+  "opacity_zero_invisible": true,
+  "thickness_zero_invisible": true,
+  "repeatable": true,
+  "changed_pixels": {
+    "layered": 37482,
+    "border": 5256,
+    "filled-border": 30938
+  }
+}

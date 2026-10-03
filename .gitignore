@@ -1,0 +1,20 @@
+# Local upstream source snapshots, not project dependencies.
+.research/
+
+# Future Rust build and export outputs.
+/target/
+/output/
+/cache/
+*.mp4.part
+/examples/media/
+
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+
+# All user assets are private by default, including unknown file types.
+# Only the bundled, licensed fonts are part of this repository.
+/assets/*
+!/assets/fonts/

@@ -1,0 +1,1009 @@
+{
+  "review_date": "2026-10-02",
+  "timezone": "Asia/Shanghai",
+  "scope": "Acquired files and focused source reading. Acquired does not imply full-file review. No upstream build or end-to-end media execution.",
+  "build_verified": false,
+  "media_interop_verified": false,
+  "dream_han_font_binary_verified": false,
+  "local_cache_directory": ".research (ignored by Git)",
+  "repositories": [
+    {
+      "requested": "cradiy/gpui-apple-music-demo",
+      "repository": "cradiy/gpui-apple-music-demo",
+      "branch": "main",
+      "sha": "ae4d5facbb29129c80b65e997440814a7e3b6e46",
+      "commit_date": "2026-09-04T18:03:13Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "Cargo.toml",
+          "sha256": "63b29c783dc65f5f79b3a2ad27259eb6ab66d5baa1083d8c42c57243d0e1aea1",
+          "bytes": 1677,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/Cargo.toml"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2f07ce3d7276eb9c958800a0d6a81ab27ebd29e4bc18938674e130ff5d1dbe86",
+          "bytes": 1063,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/LICENSE"
+        },
+        {
+          "path": "src/audio_metadata/mod.rs",
+          "sha256": "7883cc7adc008ffc1afc55b9ebfc5a2794b62dda51e23eaca28e369cf97b0bf4",
+          "bytes": 8491,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/audio_metadata/mod.rs"
+        },
+        {
+          "path": "src/domain/lyrics.rs",
+          "sha256": "8ee47943cd1c1169f0e4e6dc679f6e72ae09c36fbdb79e2e5c7549cb744d223b",
+          "bytes": 10596,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/domain/lyrics.rs"
+        },
+        {
+          "path": "src/domain/playback.rs",
+          "sha256": "c7c6c5edc799f2b85c4dead4926b689fcfaa00d7439dbe07a7348a2eb0d9e53a",
+          "bytes": 1086,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/domain/playback.rs"
+        },
+        {
+          "path": "src/state/playback.rs",
+          "sha256": "c271e77c9046cab51d05def3fc682e9cf9e93721043180dca79ea3c83528f145",
+          "bytes": 33930,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/state/playback.rs"
+        },
+        {
+          "path": "src/state/queue.rs",
+          "sha256": "65b806bcc9ed2f95e11337ca8396e476766ea39a478b2a5618a27c57e02bba69",
+          "bytes": 11745,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/state/queue.rs"
+        },
+        {
+          "path": "src/ui/components/lyrics_panel.rs",
+          "sha256": "8f3616d7060e1d4a139e59db79a4b25d1897a10edfce5736c5c6241bc9947c9a",
+          "bytes": 24714,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/ui/components/lyrics_panel.rs"
+        },
+        {
+          "path": "src/ui/components/media_cover.rs",
+          "sha256": "5d1c107e8b7c0dc2d83b69a075ee48c79192a03823e55f9b536146908facf004",
+          "bytes": 3417,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/ui/components/media_cover.rs"
+        },
+        {
+          "path": "src/ui/components/now_playing.rs",
+          "sha256": "a9267c0573bc9df9107265e1a94ec158e6b1838d512770d50ab3142712598b41",
+          "bytes": 21309,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/ui/components/now_playing.rs"
+        },
+        {
+          "path": "src/utils/time.rs",
+          "sha256": "80f747bd394885ac8b7fc42f7a7810c3efcceb89de631b11e1b22fa26f884fa1",
+          "bytes": 729,
+          "source_url": "https://github.com/cradiy/gpui-apple-music-demo/blob/ae4d5facbb29129c80b65e997440814a7e3b6e46/src/utils/time.rs"
+        }
+      ],
+      "reviewed_focus": {
+        "src/state/playback.rs": [
+          "open_player, Ended event, timeline update, stale generation rejection"
+        ],
+        "src/ui/components/now_playing.rs": [
+          "render composition, album_glow time, controls"
+        ],
+        "src/ui/components/lyrics_panel.rs": [
+          "LyricsPresentationClock, update_scroll_position, TimedText.position"
+        ],
+        "Cargo.toml": [
+          "pinned GPUI revision and enabled dependencies"
+        ]
+      }
+    },
+    {
+      "requested": "cradiy/gpui",
+      "repository": "cradiy/gpui-fusion",
+      "branch": "main",
+      "sha": "27d0daf84e4956f93aac222985e91181ff3d43b5",
+      "commit_date": "2026-10-02T10:51:30Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "Cargo.toml",
+          "sha256": "3e1b2481b66ba18479a8f6a6db2f9cb7075eafcd02631012ddec8dbb33eb250a",
+          "bytes": 11996,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/Cargo.toml"
+        },
+        {
+          "path": "crates/gpui/Cargo.toml",
+          "sha256": "bde42e940ebabe18ea42fc1de2e40d487cc9798238aef4363f48ca52f9cfe8b7",
+          "bytes": 6617,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/Cargo.toml"
+        },
+        {
+          "path": "crates/gpui/src/app/headless_app_context.rs",
+          "sha256": "9b85f6de4a29d6d0fb813d978d7958659062858cf20bedef44972c89cc4a0319",
+          "bytes": 9435,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/src/app/headless_app_context.rs"
+        },
+        {
+          "path": "crates/gpui/src/gpui.rs",
+          "sha256": "831cc30067a4d2b74b061fc320d2ed1ad3328608a06349c7beed2d5da413297b",
+          "bytes": 12284,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/src/gpui.rs"
+        },
+        {
+          "path": "crates/gpui/src/platform/test/window.rs",
+          "sha256": "fdbceae7551240461d70cd96d2ed9dd5e53467f12e7958e362e2726b71347b85",
+          "bytes": 12358,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/src/platform/test/window.rs"
+        },
+        {
+          "path": "crates/gpui/src/platform.rs",
+          "sha256": "44fb0dcda28dce7218b8ffdfcd60c61f2157aa4f8af665811f7b5b83c0dfd30f",
+          "bytes": 104916,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/src/platform.rs"
+        },
+        {
+          "path": "crates/gpui/src/scene.rs",
+          "sha256": "3869c4ec142c94c10a4bcbd449cd7068b336506c85e6426eb410eb0fe3dc6895",
+          "bytes": 68544,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui/src/scene.rs"
+        },
+        {
+          "path": "crates/gpui_3d/docs/topics/headless.md",
+          "sha256": "f5e28b544d57ed5cf06c9a4dc3cd9698976127732deb3537ee8417d6bcdb8513",
+          "bytes": 34301,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_3d/docs/topics/headless.md"
+        },
+        {
+          "path": "crates/gpui_3d/examples/headless.rs",
+          "sha256": "8179e2f5a24633e21d2f66bcf88965e45ab9edca3f9df8b6e27704631d6cf198",
+          "bytes": 5692,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_3d/examples/headless.rs"
+        },
+        {
+          "path": "crates/gpui_effects/Cargo.toml",
+          "sha256": "da7ef3410afe1b9cfe4d7d1f7e6f08cf37c18df9588298fe0c69f1707f553bed",
+          "bytes": 598,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_effects/Cargo.toml"
+        },
+        {
+          "path": "crates/gpui_effects/src/timed_text.rs",
+          "sha256": "91853ec8fe8678c003f3f2608ddbfd6fe7ad366bb27625463695e7c614ebc496",
+          "bytes": 32875,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_effects/src/timed_text.rs"
+        },
+        {
+          "path": "crates/gpui_platform/Cargo.toml",
+          "sha256": "b3a8671f14768a55c49931f17c9d0dd6b627c85cf531be244dbfe90c6f0a35da",
+          "bytes": 1027,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_platform/Cargo.toml"
+        },
+        {
+          "path": "crates/gpui_platform/src/gpui_platform.rs",
+          "sha256": "037a63eb98dc5b8bf05c2a1f9aada144a88395d52eacfb6af540d71486ff7b1f",
+          "bytes": 5977,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_platform/src/gpui_platform.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/Cargo.toml",
+          "sha256": "e922f41fa8e13ec7641e310d18e1f9a5c51ef999aff2166d7e147e4b058092d6",
+          "bytes": 1945,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/Cargo.toml"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/cosmic_text_system.rs",
+          "sha256": "cb05dc498b3f865a3db875c752c195a928c15d2375de94280de66d9e5278959c",
+          "bytes": 43378,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/cosmic_text_system.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/gpui_wgpu.rs",
+          "sha256": "406d46b9cc3a7849af62ccdd418b6c3ac35e7db0885e3a1218958bbe8eb202bf",
+          "bytes": 19594,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/gpui_wgpu.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/offscreen_renderer/tests.rs",
+          "sha256": "0b1d196c82a85f0f40cd5296058eb6668de41c7f79893107ef70918de396d254",
+          "bytes": 6865,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/offscreen_renderer/tests.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/offscreen_renderer.rs",
+          "sha256": "5fcce0df5ce8622d21cf860ecacaf35da4afddcd9f59244729e83a7963f1f893",
+          "bytes": 6893,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/offscreen_renderer.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/wgpu_context.rs",
+          "sha256": "f0d0289a28a1d803ae68ce3f9297087a78411b038b2f6cc46d5b0f88c67ec7b1",
+          "bytes": 28427,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/wgpu_context.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/wgpu_renderer/ui_capture.rs",
+          "sha256": "9073289a15110ead2ed2d05b5a69a21cc33dc4144841e908e3bacd802e4dfd09",
+          "bytes": 22207,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/wgpu_renderer/ui_capture.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/src/wgpu_renderer.rs",
+          "sha256": "590c1cbcff8359530f2b3f84b581bbc8765f2d7eb078029c9f1d639468cdda8f",
+          "bytes": 227589,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/src/wgpu_renderer.rs"
+        },
+        {
+          "path": "crates/gpui_wgpu/tests/context_initialization.rs",
+          "sha256": "ee7cbf8dfd87279e58a65cdb6fc1272b792e98dbf76ee023992c50f028a2c859",
+          "bytes": 1378,
+          "source_url": "https://github.com/cradiy/gpui-fusion/blob/27d0daf84e4956f93aac222985e91181ff3d43b5/crates/gpui_wgpu/tests/context_initialization.rs"
+        }
+      ],
+      "reviewed_focus": {
+        "crates/gpui_wgpu/src/offscreen_renderer.rs": [
+          "complete file"
+        ],
+        "crates/gpui_wgpu/src/offscreen_renderer/tests.rs": [
+          "glyph_tile and first GPU clip/coverage test"
+        ],
+        "crates/gpui_wgpu/src/cosmic_text_system.rs": [
+          "new_without_system_fonts, add_fonts, feature translation"
+        ],
+        "crates/gpui/src/app/headless_app_context.rs": [
+          "with_platform, open_window, screenshot hooks"
+        ],
+        "crates/gpui/src/platform.rs": [
+          "PlatformHeadlessRenderer trait"
+        ],
+        "crates/gpui/src/platform/test/window.rs": [
+          "shared atlas and draw error handling"
+        ],
+        "crates/gpui_platform/src/gpui_platform.rs": [
+          "current_headless_renderer"
+        ],
+        "crates/gpui_effects/src/timed_text.rs": [
+          "position, UTF-8 validation and time evaluation"
+        ],
+        "Cargo.toml": [
+          "workspace wgpu version and edition"
+        ],
+        "crates/gpui_wgpu/Cargo.toml": [
+          "license and native dependencies"
+        ],
+        "crates/gpui_effects/Cargo.toml": [
+          "license"
+        ]
+      }
+    },
+    {
+      "requested": "googlefonts/roboto-2",
+      "repository": "googlefonts/roboto-2",
+      "branch": "main",
+      "sha": "38062f4b4a0be4346d07a928408da21602545e9e",
+      "commit_date": "2025-04-01T16:56:26Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357,
+          "source_url": "https://github.com/googlefonts/roboto-2/blob/38062f4b4a0be4346d07a928408da21602545e9e/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "sha256": "01a607bbe8fa1cd493de7384020d185055e1bfb070ff3aeb9bd45dae690480f6",
+          "bytes": 1908,
+          "source_url": "https://github.com/googlefonts/roboto-2/blob/38062f4b4a0be4346d07a928408da21602545e9e/README.md"
+        },
+        {
+          "path": "src/hinted/Roboto-Regular.ttf",
+          "sha256": "56a45233d29f11b4dfb86d248e921939d115778f87325e7ae8cc108383d6664d",
+          "bytes": 515100,
+          "source_url": "https://github.com/googlefonts/roboto-2/blob/38062f4b4a0be4346d07a928408da21602545e9e/src/hinted/Roboto-Regular.ttf"
+        },
+        {
+          "path": "src/v2/Roboto-Regular.ufo/features.fea",
+          "sha256": "e98af849fec29af9b37ba121dbff32a92784a255cd42a5f8205adc8329bb0d62",
+          "bytes": 80779,
+          "source_url": "https://github.com/googlefonts/roboto-2/blob/38062f4b4a0be4346d07a928408da21602545e9e/src/v2/Roboto-Regular.ufo/features.fea"
+        }
+      ],
+      "reviewed_focus": {
+        "src/v2/Roboto-Regular.ufo/features.fea": [
+          "pnum, tnum, lnum"
+        ],
+        "src/hinted/Roboto-Regular.ttf": [
+          "FontTools cmap, hmtx, GSUB, head parse"
+        ]
+      }
+    },
+    {
+      "requested": "lemenkov/libyuv",
+      "repository": "lemenkov/libyuv",
+      "branch": "main",
+      "sha": "eee459798486116575ed66c6d6609205d445ffb2",
+      "commit_date": "2026-10-01T09:50:39Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "include/libyuv/convert.h",
+          "sha256": "ebd6b25a1b9af4682ffcc2c8f4ba58546f961494317771aa38268838abac0eec",
+          "bytes": 37887,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/include/libyuv/convert.h"
+        },
+        {
+          "path": "include/libyuv/convert_from_argb.h",
+          "sha256": "2ab677eaa64d19842b1a4b556dddbeb112b40f05cfda54195dc597263f205d50",
+          "bytes": 20530,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/include/libyuv/convert_from_argb.h"
+        },
+        {
+          "path": "include/libyuv/row.h",
+          "sha256": "5dd0b17f1802d70a5bbbf887db7e6b9b4925e51f70bfde1d08a986c08e8b7cfc",
+          "bytes": 314582,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/include/libyuv/row.h"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "2b2cc1180c7e6988328ad2033b04b80117419db9c4c584918bbb3cfec7e9364f",
+          "bytes": 1506,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/LICENSE"
+        },
+        {
+          "path": "PATENTS",
+          "sha256": "4da84211f947c6f9f7dd8fbce513e1522e01833407ae732b8c9a2bbb75fed495",
+          "bytes": 1387,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/PATENTS"
+        },
+        {
+          "path": "source/convert.cc",
+          "sha256": "0c767d12996958ab9dd6e67f6989c826fbc189a21bf04448f26215df47e5887a",
+          "bytes": 144881,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/source/convert.cc"
+        },
+        {
+          "path": "source/convert_from_argb.cc",
+          "sha256": "6702087f39a51fff6854a6e1bcca4cc136b70bccb8e86ff98356810a50654dc8",
+          "bytes": 119234,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/source/convert_from_argb.cc"
+        },
+        {
+          "path": "source/row_common.cc",
+          "sha256": "a95bfa8db94df3b48485e9417d37cbd0aec88472ff9980fe1d420a6713e46398",
+          "bytes": 167604,
+          "source_url": "https://github.com/lemenkov/libyuv/blob/eee459798486116575ed66c6d6609205d445ffb2/source/row_common.cc"
+        }
+      ],
+      "reviewed_focus": {
+        "include/libyuv/convert.h": [
+          "RGBA memory order and I420 matrix entry points"
+        ],
+        "source/convert.cc": [
+          "ARGBToI420Matrix dispatch, ABGRToI420 and RGBAToI420"
+        ],
+        "LICENSE": [
+          "complete license"
+        ]
+      }
+    },
+    {
+      "requested": "LuN3cy/LiveSort",
+      "repository": "LuN3cy/LiveSort",
+      "branch": "main",
+      "sha": "787239aa90bc97ca0f5e7c2b5964f054e9e422d0",
+      "commit_date": "2026-04-20T04:58:56Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "LiveSortApp/api/audio_analyzer.py",
+          "sha256": "5074e7c15cd5becb480d5b04d88010f6eea02d940c8109cf8ef1304702943fbe",
+          "bytes": 17074,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/LiveSortApp/api/audio_analyzer.py"
+        },
+        {
+          "path": "LiveSortApp/audio_analyzer.py",
+          "sha256": "8d80f27a3513aa806576c2da29fff6ac9d6418f7608a21200fefe97eb9489528",
+          "bytes": 16881,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/LiveSortApp/audio_analyzer.py"
+        },
+        {
+          "path": "LiveSortApp/main.py",
+          "sha256": "5a658828cea71492bc5b49fd9e6e0c53d5d618c9bfa07d717cd2e699ef5acbee",
+          "bytes": 75760,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/LiveSortApp/main.py"
+        },
+        {
+          "path": "LiveSortApp/README.md",
+          "sha256": "5034f553a3f2c1e55bd300da8f60d617b99d70c605658477339d99d71add15aa",
+          "bytes": 3361,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/LiveSortApp/README.md"
+        },
+        {
+          "path": "LiveSortApp/requirements.txt",
+          "sha256": "649b7c8385ab00d6d3ecd9014f99cb863db8c04373ed7ec47a55c9757120dd74",
+          "bytes": 104,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/LiveSortApp/requirements.txt"
+        },
+        {
+          "path": "README.md",
+          "sha256": "3abea63e4127332959832d2f30fd295834368c82b8f9a3c127fb0fc014230606",
+          "bytes": 3409,
+          "source_url": "https://github.com/LuN3cy/LiveSort/blob/787239aa90bc97ca0f5e7c2b5964f054e9e422d0/README.md"
+        }
+      ],
+      "reviewed_focus": {
+        "LiveSortApp/audio_analyzer.py": [
+          "feature extraction, invalid tail estimate, ordering cost"
+        ],
+        "LiveSortApp/main.py": [
+          "_build_transition_overlaps, _crossfade_state, _build_crossfade_envelopes, _mix_tracks"
+        ]
+      }
+    },
+    {
+      "requested": "Pal3love/dream-han-cjk",
+      "repository": "Pal3love/dream-han-cjk",
+      "branch": "main",
+      "sha": "d17bc7737693db37b7eb333f857f4966a7572e40",
+      "commit_date": "2026-03-02T06:58:17Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "LICENSE.txt",
+          "sha256": "3b9d9d42393580f6c66c60b17910b1f7aa95a1470261b6b8ba768039983be653",
+          "bytes": 4625,
+          "source_url": "https://github.com/Pal3love/dream-han-cjk/blob/d17bc7737693db37b7eb333f857f4966a7572e40/LICENSE.txt"
+        },
+        {
+          "path": "README.md",
+          "sha256": "7d01d6d83fba2eacdc55a08691b82aeab319c16167ebaca4aacc5a67ec794964",
+          "bytes": 6612,
+          "source_url": "https://github.com/Pal3love/dream-han-cjk/blob/d17bc7737693db37b7eb333f857f4966a7572e40/README.md"
+        },
+        {
+          "path": "script/generate_config.py",
+          "sha256": "36922d8a8f165dfcc85e8a081c5ecb8ea1ef426c9918fbfe45d409d393d193f5",
+          "bytes": 6809,
+          "source_url": "https://github.com/Pal3love/dream-han-cjk/blob/d17bc7737693db37b7eb333f857f4966a7572e40/script/generate_config.py"
+        }
+      ],
+      "reviewed_focus": {
+        "README.md": [
+          "format, regions, weights, licensing and releases"
+        ],
+        "script/generate_config.py": [
+          "language-region mapping and license metadata"
+        ],
+        "LICENSE.txt": [
+          "OFL and Reserved Font Names"
+        ]
+      }
+    },
+    {
+      "requested": "ppy/osu-framework",
+      "repository": "ppy/osu-framework",
+      "branch": "master",
+      "sha": "a2bd377a8f9b5242fb7b9f264e575b8df8019b8c",
+      "commit_date": "2026-10-02T09:17:52Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "LICENCE",
+          "sha256": "d07e3ce383a24bdc4665208e0ca3730e433ea1e8235b67a301a2b26335692c8e",
+          "bytes": 1092,
+          "source_url": "https://github.com/ppy/osu-framework/blob/a2bd377a8f9b5242fb7b9f264e575b8df8019b8c/LICENCE"
+        },
+        {
+          "path": "osu.Framework/Audio/Track/Waveform.cs",
+          "sha256": "9f599aa4563a82a7a260f70b0b1d53d498f98d13b3c58d0ba06e5a9d25f61395",
+          "bytes": 17933,
+          "source_url": "https://github.com/ppy/osu-framework/blob/a2bd377a8f9b5242fb7b9f264e575b8df8019b8c/osu.Framework/Audio/Track/Waveform.cs"
+        },
+        {
+          "path": "osu.Framework/Graphics/Audio/WaveformGraph.cs",
+          "sha256": "43709cf84cc662b5bebf88effd2768d7c538dc487ae91ed7b3041419fadef601",
+          "bytes": 14045,
+          "source_url": "https://github.com/ppy/osu-framework/blob/a2bd377a8f9b5242fb7b9f264e575b8df8019b8c/osu.Framework/Graphics/Audio/WaveformGraph.cs"
+        }
+      ],
+      "reviewed_focus": {
+        "osu.Framework/Audio/Track/Waveform.cs": [
+          "sample peak pass, FFT bands, Gaussian display resampling"
+        ],
+        "osu.Framework/Graphics/Audio/WaveformGraph.cs": [
+          "resolution, generation, cancellation, visible range and stereo drawing"
+        ]
+      }
+    },
+    {
+      "requested": "ppy/osu",
+      "repository": "ppy/osu",
+      "branch": "master",
+      "sha": "c834803ea9988159d67e1dc5d99cfaccada685d9",
+      "commit_date": "2026-10-02T12:26:24Z",
+      "truncated": false,
+      "acquired_files": [
+        {
+          "path": "Directory.Build.props",
+          "sha256": "1eabe5cd5e91001621a33c937f81aca1f9680aab9215b5ac81c6ffe407fafd69",
+          "bytes": 2996,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/Directory.Build.props"
+        },
+        {
+          "path": "LICENCE",
+          "sha256": "2e73c7c4295cc3da18697ac982f64a4ec449e0781e8f4c59318216e13998864a",
+          "bytes": 1092,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/LICENCE"
+        },
+        {
+          "path": "osu.Game/Graphics/Backgrounds/TriangleBorderData.cs",
+          "sha256": "68148096788c0bd1ddbc12e216c7850d68d348eafd5a11c3ab84777456fbad15",
+          "bytes": 510,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game/Graphics/Backgrounds/TriangleBorderData.cs"
+        },
+        {
+          "path": "osu.Game/Graphics/Backgrounds/Triangles.cs",
+          "sha256": "eb8ce0910aad5373d8e3bb451a48dba46cdde1a9b8a516f19e4141a267db3b7e",
+          "bytes": 15125,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game/Graphics/Backgrounds/Triangles.cs"
+        },
+        {
+          "path": "osu.Game/Graphics/Backgrounds/TrianglesV2.cs",
+          "sha256": "f7efae206167f7c71d83ff33c68d3f624f443e7c1e3c67033cfc8feea97b1593",
+          "bytes": 11701,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game/Graphics/Backgrounds/TrianglesV2.cs"
+        },
+        {
+          "path": "osu.Game/osu.Game.csproj",
+          "sha256": "052c8714b28dffd72c564724e797bc1dd52faf16401249284288c932ab9bdd2f",
+          "bytes": 2626,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game/osu.Game.csproj"
+        },
+        {
+          "path": "osu.Game/Screens/Edit/Timing/WaveformComparisonDisplay.cs",
+          "sha256": "2ec2025b073211c9cc0d34d88a7e776508d95040ec195ce521275d6cac927585",
+          "bytes": 13585,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game/Screens/Edit/Timing/WaveformComparisonDisplay.cs"
+        },
+        {
+          "path": "osu.Game.Tests/Visual/Background/TestSceneTriangleBorderShader.cs",
+          "sha256": "c80ab7350e7ec1fb5a768f41b93129c30c9b725ca172391fb8ef4d49569c9f6b",
+          "bytes": 3963,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game.Tests/Visual/Background/TestSceneTriangleBorderShader.cs"
+        },
+        {
+          "path": "osu.Game.Tests/Visual/Background/TestSceneTrianglesV2Background.cs",
+          "sha256": "d70b79d08b2ac84c0a1cd0998d02813c08f900de824d3bbd1116b1cfea1df22b",
+          "bytes": 5822,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game.Tests/Visual/Background/TestSceneTrianglesV2Background.cs"
+        },
+        {
+          "path": "osu.Game.Tests/Visual/Editing/TestSceneWaveform.cs",
+          "sha256": "a92e9bf5164e50be482456fb93a2f2293914e62ff877004b642f43677a55a8d7",
+          "bytes": 3841,
+          "source_url": "https://github.com/ppy/osu/blob/c834803ea9988159d67e1dc5d99cfaccada685d9/osu.Game.Tests/Visual/Editing/TestSceneWaveform.cs"
+        }
+      ],
+      "reviewed_focus": {
+        "osu.Game/Graphics/Backgrounds/TrianglesV2.cs": [
+          "initialization, elapsed update, generation, DrawNode"
+        ],
+        "osu.Game/Screens/Edit/Timing/WaveformComparisonDisplay.cs": [
+          "WaveformGraph integration"
+        ],
+        "osu.Game.Tests/Visual/Editing/TestSceneWaveform.cs": [
+          "framework WaveformGraph usage"
+        ]
+      }
+    }
+  ],
+  "crates": [
+    {
+      "crate": "fdk-aac-sys",
+      "version": "0.5.0",
+      "repository": "https://github.com/haileys/fdk-aac-rs",
+      "license": "MIT",
+      "checksum": "24516d2611506d5cb1833555adc75f6baf9fe2706b9c13e6fc33a6b22c51ca83",
+      "registry_checksum": "24516d2611506d5cb1833555adc75f6baf9fe2706b9c13e6fc33a6b22c51ca83",
+      "created_at": "2023-07-05T01:01:08.775265Z",
+      "archive_url": "https://static.crates.io/crates/fdk-aac-sys/fdk-aac-sys-0.5.0.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "aac/libAACenc/include/aacenc_lib.h",
+          "sha256": "5fc00aebee25e2584b37f386dd565863e85df6669cb65ebad1f8c1515a5af126",
+          "bytes": 89059
+        },
+        {
+          "path": "aac/NOTICE",
+          "sha256": "95ec80da40b4af12ad4c4f3158c9cfb80f2479f3246e4260cb600827cc8c7836",
+          "bytes": 4447
+        }
+      ]
+    },
+    {
+      "crate": "fdk-aac",
+      "version": "0.8.0",
+      "repository": "https://github.com/haileys/fdk-aac-rs",
+      "license": "MIT",
+      "checksum": "7bb67e142688083cb9afb63f2424203fc98c4e7afb494bf912b60b55513b177e",
+      "registry_checksum": "7bb67e142688083cb9afb63f2424203fc98c4e7afb494bf912b60b55513b177e",
+      "created_at": "2025-09-25T04:28:57.860498Z",
+      "archive_url": "https://static.crates.io/crates/fdk-aac/fdk-aac-0.8.0.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/enc.rs",
+          "sha256": "481e6adc5e15edf446e3db5fc60887f2e3a3c8b2d6a0a14851930d20b2cec00b",
+          "bytes": 8898
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "a50d69f67f098ce54d61640f00967d2f6ffec0c62e810321d83635e5e98c307d",
+          "bytes": 974
+        }
+      ]
+    },
+    {
+      "crate": "muxide",
+      "version": "0.2.5",
+      "repository": "https://github.com/Michael-A-Kuykendall/muxide",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "fd20c287ed0dab57c8ee6bb2c4dc6b6c5d9634a9625bf5099647136d10b579cc",
+      "registry_checksum": "fd20c287ed0dab57c8ee6bb2c4dc6b6c5d9634a9625bf5099647136d10b579cc",
+      "created_at": "2026-05-20T17:27:44.700696Z",
+      "archive_url": "https://static.crates.io/crates/muxide/muxide-0.2.5.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/api.rs",
+          "sha256": "3aa0bafe92b749addd089ab42970ee893b84288dc4180f590ce9cce7e261c79c",
+          "bytes": 51683
+        },
+        {
+          "path": "src/muxer/mp4.rs",
+          "sha256": "82c253e01e2a5e9519362559ddcb373c04b86ef5bd3752b31a90b994f0ee4be3",
+          "bytes": 112064
+        },
+        {
+          "path": "examples/interop_av_h264_aac.rs",
+          "sha256": "b01d2b62648f10828c1da7e44496eb0db96525fe3cbfb9d9e71458b67276415e",
+          "bytes": 8436
+        }
+      ]
+    },
+    {
+      "crate": "openh264-sys2",
+      "version": "0.9.8",
+      "repository": "https://github.com/ralfbiedert/openh264-rs",
+      "license": "BSD-2-Clause",
+      "checksum": "6ada29a4cadc13d4d326737af87c13e224210d7d99fe47594e9f3f9b0102fd70",
+      "registry_checksum": "6ada29a4cadc13d4d326737af87c13e224210d7d99fe47594e9f3f9b0102fd70",
+      "created_at": "2026-08-08T20:14:54.156535Z",
+      "archive_url": "https://static.crates.io/crates/openh264-sys2/openh264-sys2-0.9.8.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": []
+    },
+    {
+      "crate": "openh264",
+      "version": "0.9.8",
+      "repository": "https://github.com/ralfbiedert/openh264-rs",
+      "license": "BSD-2-Clause",
+      "checksum": "fcc9071a0b5f9c501ddd01066c2600d922cc799dc450a52975222bcda7755a08",
+      "registry_checksum": "fcc9071a0b5f9c501ddd01066c2600d922cc799dc450a52975222bcda7755a08",
+      "created_at": "2026-08-08T20:15:05.256077Z",
+      "archive_url": "https://static.crates.io/crates/openh264/openh264-0.9.8.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/encoder.rs",
+          "sha256": "6902a98aa4cc85ab334ee564f3153de6776e917b0724c57706c0e1e1210e97ce",
+          "bytes": 45499
+        },
+        {
+          "path": "src/formats/yuv.rs",
+          "sha256": "7239e6e896857341abbe3e687d69f6f76af581b1df18208a6b1065f44801754c",
+          "bytes": 14445
+        },
+        {
+          "path": "src/formats/arch/scalar.rs",
+          "sha256": "534ff0cb466ae05f1e0abe69ab665a2b62fe3b68f6ffac5dfa81608b74265f99",
+          "bytes": 3555
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "d9aa1d8c3e638ba82460ad5d1efbf4b2afec0af914221f83bcb2f234b512734c",
+          "bytes": 2885
+        }
+      ]
+    },
+    {
+      "crate": "oxiaudio-core",
+      "version": "0.2.1",
+      "repository": "https://github.com/cool-japan/oxiaudio",
+      "license": "Apache-2.0",
+      "checksum": "c462ef47c2a41231fc711e99794c3f161365e9a98d64122ee6ba332911e25af5",
+      "registry_checksum": "c462ef47c2a41231fc711e99794c3f161365e9a98d64122ee6ba332911e25af5",
+      "created_at": "2026-08-06T11:51:24.921240Z",
+      "archive_url": "https://static.crates.io/crates/oxiaudio-core/oxiaudio-core-0.2.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/lib.rs",
+          "sha256": "d7663a07152d10ea448309c404259617ce7f9c3f5b01ef0a6bb652dbbf4a0f38",
+          "bytes": 42398
+        }
+      ]
+    },
+    {
+      "crate": "oxiaudio-decode",
+      "version": "0.2.1",
+      "repository": "https://github.com/cool-japan/oxiaudio",
+      "license": "Apache-2.0",
+      "checksum": "1ee21e8620ef3a72fb64b2a17efc53e386706e80dc2af88c3711738533b9408f",
+      "registry_checksum": "1ee21e8620ef3a72fb64b2a17efc53e386706e80dc2af88c3711738533b9408f",
+      "created_at": "2026-08-06T11:52:07.237785Z",
+      "archive_url": "https://static.crates.io/crates/oxiaudio-decode/oxiaudio-decode-0.2.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/lib.rs",
+          "sha256": "178667b8c179c5d4a02cda772f26d9aa2baec81af6f64321eb6cbed07bec436a",
+          "bytes": 56426
+        },
+        {
+          "path": "src/streaming.rs",
+          "sha256": "d442e29995c57b173bf0d75a4fcc9f3cff96fb9286d188de09ea3aef352ae460",
+          "bytes": 41734
+        },
+        {
+          "path": "src/gapless.rs",
+          "sha256": "58062ca47fc6f4108c2b79c1dec2e04e3e50401afe61b0c34c9a5b0002ea6aac",
+          "bytes": 15688
+        }
+      ]
+    },
+    {
+      "crate": "oxiaudio-encode",
+      "version": "0.2.1",
+      "repository": "https://github.com/cool-japan/oxiaudio",
+      "license": "Apache-2.0",
+      "checksum": "f1cea95745971e7619bce47cd54adf204775fdda096a99467f9661f453a7bfe9",
+      "registry_checksum": "f1cea95745971e7619bce47cd54adf204775fdda096a99467f9661f453a7bfe9",
+      "created_at": "2026-08-06T11:53:29.263372Z",
+      "archive_url": "https://static.crates.io/crates/oxiaudio-encode/oxiaudio-encode-0.2.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/lib.rs",
+          "sha256": "6829a240d9837b8207fbcfd5ffeeecd90854789b09d6a60b4f6344167b032fbc",
+          "bytes": 24820
+        },
+        {
+          "path": "src/aac.rs",
+          "sha256": "cd40ae2d829e6c993b812494d9138115909769c76a0e6f348c3bae77ac2140f1",
+          "bytes": 79336
+        }
+      ]
+    },
+    {
+      "crate": "oxiaudio",
+      "version": "0.2.1",
+      "repository": "https://github.com/cool-japan/oxiaudio",
+      "license": "Apache-2.0",
+      "checksum": "86fa47d61681cf7924af45b7c6a72bc540f0c53108700fd70bb77f2c5c8d3fb8",
+      "registry_checksum": "86fa47d61681cf7924af45b7c6a72bc540f0c53108700fd70bb77f2c5c8d3fb8",
+      "created_at": "2026-08-06T11:54:45.679061Z",
+      "archive_url": "https://static.crates.io/crates/oxiaudio/oxiaudio-0.2.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/decode.rs",
+          "sha256": "f4fbcc31cd8d9f8f40ccf91ad1e6c9d18daaf96bdc211e59a285d974be22e29f",
+          "bytes": 13958
+        },
+        {
+          "path": "src/encode.rs",
+          "sha256": "cc880b80e1fdd5099235c3fb1f4d3031cabb220a450532c04e5acc264c58ca2f",
+          "bytes": 23976
+        },
+        {
+          "path": "src/dsp.rs",
+          "sha256": "3ef9d5fb1dcee204215afc978451f441dc5f36dcdcc941d2307d0f1cb247d471",
+          "bytes": 22505
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "2d922d5f5f5fde33abcaef639a1855b78f8c22a7fb7cfc58fe177408a457307b",
+          "bytes": 2480
+        }
+      ]
+    },
+    {
+      "crate": "rubato",
+      "version": "5.0.1",
+      "repository": "https://github.com/HEnquist/rubato",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "cc1e951b9f5432ec1422f4dcfa5733fc501265902612edf5ef8bd8ecdd960930",
+      "registry_checksum": "cc1e951b9f5432ec1422f4dcfa5733fc501265902612edf5ef8bd8ecdd960930",
+      "created_at": "2026-10-01T07:02:32.580672Z",
+      "archive_url": "https://static.crates.io/crates/rubato/rubato-5.0.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/lib.rs",
+          "sha256": "424589aa0061d9061e4acdfa0ca3c7260dba88a0d743d6091ac470c42731a2f7",
+          "bytes": 58360
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "afa64e558985008ab9b9b9f2cf7fb83df07dd8a1ad25204bb0c2b17b17899b6f",
+          "bytes": 2495
+        }
+      ]
+    },
+    {
+      "crate": "wgpu",
+      "version": "30.0.1",
+      "repository": "https://github.com/gfx-rs/wgpu",
+      "license": "MIT OR Apache-2.0",
+      "checksum": "527ccdf43dd5b2e8676eed9984ce00e2bbb0a1b85b70c1969dcb6cd2eb55ab9e",
+      "registry_checksum": "527ccdf43dd5b2e8676eed9984ce00e2bbb0a1b85b70c1969dcb6cd2eb55ab9e",
+      "created_at": "2026-08-22T02:53:38.229945Z",
+      "archive_url": "https://static.crates.io/crates/wgpu/wgpu-30.0.1.crate",
+      "checksum_matches_registry": true,
+      "reviewed_files": [
+        {
+          "path": "src/api/buffer.rs",
+          "sha256": "a304040166251cb1f1e60d6e1407b2e951dc3836144b40b95852749005095042",
+          "bytes": 45425
+        },
+        {
+          "path": "Cargo.toml",
+          "sha256": "920e38a10484891fca696907fdfcccf3a4600b1736f4f4d138815557c10b28e7",
+          "bytes": 6003
+        }
+      ]
+    }
+  ],
+  "roboto_binary_metrics": {
+    "font": "repos\\googlefonts__roboto-2\\src\\hinted\\Roboto-Regular.ttf",
+    "sha256": "56a45233d29f11b4dfb86d248e921939d115778f87325e7ae8cc108383d6664d",
+    "units_per_em": 2048,
+    "digits": {
+      "0": {
+        "glyph": "zero",
+        "advance": 1150
+      },
+      "1": {
+        "glyph": "one",
+        "advance": 1150
+      },
+      "2": {
+        "glyph": "two",
+        "advance": 1150
+      },
+      "3": {
+        "glyph": "three",
+        "advance": 1150
+      },
+      "4": {
+        "glyph": "four",
+        "advance": 1150
+      },
+      "5": {
+        "glyph": "five",
+        "advance": 1150
+      },
+      "6": {
+        "glyph": "six",
+        "advance": 1150
+      },
+      "7": {
+        "glyph": "seven",
+        "advance": 1150
+      },
+      "8": {
+        "glyph": "eight",
+        "advance": 1150
+      },
+      "9": {
+        "glyph": "nine",
+        "advance": 1150
+      }
+    },
+    "default_digits_equal_advance": true,
+    "GSUB_features": [
+      "c2sc",
+      "ccmp",
+      "dlig",
+      "dnom",
+      "frac",
+      "liga",
+      "lnum",
+      "locl",
+      "numr",
+      "onum",
+      "pnum",
+      "salt",
+      "smcp",
+      "ss01",
+      "ss02",
+      "ss03",
+      "ss04",
+      "ss05",
+      "ss06",
+      "ss07",
+      "tnum",
+      "unic"
+    ],
+    "scope": "TTF metrics and feature presence, not rendered shaping verification"
+  },
+  "dream_han_release_metadata": {
+    "tag_name": "dream-3.03-sans-2.005-serif-2.003",
+    "published_at": "2026-03-03T10:12:42Z",
+    "html_url": "https://github.com/Pal3love/dream-han-cjk/releases/tag/dream-3.03-sans-2.005-serif-2.003",
+    "name": "梦源 3.03, 黑体 2.005, 宋体 2.003",
+    "assets": [
+      {
+        "name": "DreamHanSans.zip",
+        "size": 393910309,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSans.zip"
+      },
+      {
+        "name": "DreamHanSansCN.zip",
+        "size": 194756543,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSansCN.zip"
+      },
+      {
+        "name": "DreamHanSansHK.zip",
+        "size": 131470826,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSansHK.zip"
+      },
+      {
+        "name": "DreamHanSansJP.zip",
+        "size": 103374383,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSansJP.zip"
+      },
+      {
+        "name": "DreamHanSansKR.zip",
+        "size": 93334056,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSansKR.zip"
+      },
+      {
+        "name": "DreamHanSansTW.zip",
+        "size": 131733846,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSansTW.zip"
+      },
+      {
+        "name": "DreamHanSerif.zip",
+        "size": 593912175,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerif.zip"
+      },
+      {
+        "name": "DreamHanSerifCN.zip",
+        "size": 268936545,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerifCN.zip"
+      },
+      {
+        "name": "DreamHanSerifHK.zip",
+        "size": 182433476,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerifHK.zip"
+      },
+      {
+        "name": "DreamHanSerifJP.zip",
+        "size": 142633623,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerifJP.zip"
+      },
+      {
+        "name": "DreamHanSerifKR.zip",
+        "size": 171251091,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerifKR.zip"
+      },
+      {
+        "name": "DreamHanSerifTW.zip",
+        "size": 182926218,
+        "url": "https://github.com/Pal3love/dream-han-cjk/releases/download/dream-3.03-sans-2.005-serif-2.003/DreamHanSerifTW.zip"
+      }
+    ]
+  }
+}

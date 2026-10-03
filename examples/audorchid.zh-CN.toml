@@ -1,0 +1,207 @@
+# 音兰 · 中文填写示例（schema 1）
+# 第一次试用，在项目根目录运行：
+#   cargo run --release -- demo
+#   cargo run --release -- check examples/audorchid.zh-CN.toml
+#   cargo run --release -- preview examples/audorchid.zh-CN.toml
+#   cargo run --release -- render examples/audorchid.zh-CN.toml
+# demo 会生成下面引用的两首 16 秒原创短曲、MIDI 乐谱和两张封面，不含外部歌曲或采样。
+# 真正制作视频时：改 output.path，并替换最下面每首歌的 audio/title/artist/cover。
+# 日常可直接用 audorchid.simple.zh-CN.toml：没有填写的参数采用下面的默认值。
+# TOML 内的相对路径都相对于“本 TOML 所在的文件夹”，不是终端工作目录。
+# preview 默认保存首帧到 output/audorchid.preview.png，不编码视频；重复保存须加 --overwrite。
+# 临时预览：preview examples/audorchid.zh-CN.toml --seconds 4.2 --scale 0.5 -o output/preview.png
+# 临时改成片文件名：render examples/audorchid.zh-CN.toml -o output/my-video.mp4
+# CLI 的 -o/--output 相对于终端目录；--scale 等比缩小输出，不修改这份 TOML。
+# Windows 路径建议写 "D:/Music/song.flac"，避免反斜杠转义。
+# 以 # 开头的是注释；不要翻译左边的字段名。引号里的标题、作者可以自由填写。
+
+schema_version = 1                       # 配置格式版本，保留为 1。
+name = "Audorchid Demo"                  # 项目名称，用于 inspect 输出。
+
+[output]
+path = "../output/audorchid.mp4"          # 最终视频文件；必须是 .mp4，文件夹自动创建。
+overwrite = false                       # false：已有同名文件则停止。确认要替换时改 true。
+
+[layout]
+preset = "16:9"                          # 四种内置版式："16:9"、"9:16"、"1:1"、"3:4"。
+# 内置版式固定封面、标题、作者、波形、进度和时间的位置；等比缩小会一起缩放。
+# 改比例时也要修改下方 width/height：
+#   16:9 → width = 1920, height = 1080（横屏；快速预览可用 960×540）
+#   9:16 → width = 1080, height = 1920（竖屏；快速预览可用 540×960）
+#   1:1  → width = 1080, height = 1080（方形；快速预览可用 540×540）
+#   3:4  → width = 1080, height = 1440（竖幅；快速预览可用 540×720）
+progress_position = "under_artist_lower" # 默认：保留作者文字左边对齐，只向下移；"under_artist" 恢复较高的位置。
+# "attached" 贴频谱底边；"above" 放底部可视化上方。旧名称 "cover_side" 兼容为 under_artist_lower，不再横移。
+# progress_offset = [0.0, 24.0]         # 微调进度和时间：[向右, 向下]，短边 1080 为基准；X 留 0 就只上下移动。
+visualizer_position = "bottom"           # "bottom" 放画面底部；"under_artist" 放作者下面的紧凑信息区。
+# 默认大小已经配好；可按 [宽度倍率, 高度倍率] 缩小，范围各为 0.25..1.0：
+# visualizer_scale = [0.8, 0.7]           # 波形/频谱左边与底边不动，宽缩到 80%、高缩到 70%。
+# progress_scale = [0.8, 1.0]          # 缩放条宽/条高；时间与计数同步采用条的左右边界。
+# 省略 progress_position：内置为 under_artist_lower，自定义保留手填坐标。
+# 自定义位置：preset = "custom"，再填写 [layout.custom]；完整说明见 docs/configuration.md。
+# 通常不需要自定义；内置版式不能同时写 [layout.custom]。
+
+[video]
+width = 1920                            # 输出宽度，单位：像素，必须是偶数。
+height = 1080                           # 输出高度，单位：像素，必须与 preset 比例完全一致。
+fps_num = 30                            # 帧率 = fps_num / fps_den；30/1 就是 30 fps。
+fps_den = 1                             # 一般保留 1；29.97 fps 用 30000/1001。
+bitrate_kbps = 8000                     # bitrate 模式目标码率（kb/s）；quality 模式由下面的 QP 控制画质。
+rate_control = "quality"                # "quality" 优先保留细节；"bitrate" 优先控制目标码率。
+quality_qp = 18                          # quality 模式：0..51，越低越清晰/文件越大；默认 18，细字可试 16。
+# 画面与文字按完整输出分辨率渲染，只有背景故意虚化。4:2:0 仍会减少彩色细节，不是无损编码。
+keyframe_interval = 60                  # 每多少“视频帧”安排关键帧；30 fps 下 60 帧约 2 秒。
+# 首版固定输出 H.264、BT.709 limited、I420（4:2:0），无需填写编码器名字。
+
+[audio]
+sample_rate = 48000                      # 输出采样率，单位 Hz；只支持 48000 或 44100。
+bitrate_kbps = 192                       # 双声道 AAC-LC 码率，单位 kb/s，范围 32～320。
+crossfade_seconds = 2.0                  # fixed 模式交叠 2 秒；0.0 在所有模式下都关闭交叠。smart 中非零值只表示启用。
+crossfade_curve = "equal_power"         # "equal_power" 默认等功率；"smooth" 平缓起止的等功率；"linear" 线性。
+crossfade_shape = 1.0                    # 曲线形状 0.25～4：1 为原曲线，>1 更集中在中点，<1 更早混入。
+# 例如两首各 16 秒，交叠 2 秒，成片音频长度 = 16 + 16 - 2 = 30 秒。
+# 想听到更长的融合，可试 crossfade_seconds = 4.0、crossfade_curve = "smooth"；长交叠不保证更适合所有歌。
+# equal_power/smooth 适合不同歌曲；linear 可用于高度相关的两段录音，避免中点叠加增益。
+# 交叠不能超过曲目长度；中间歌曲也必须容纳前后两次交叠。过长会报错，不会偷偷缩短。
+# 0 秒时忽略淡化曲线；封面随交叠渐变，标题在交叠中点切换，黄色区间对应实际交叠。
+# 播放顺序由 audio.arrangement 控制；smart 自动选择交叠，fixed 使用上面的秒数。
+# 已经无缝制作的专辑可设 0.0，并把下方 loudness.mode 改成 off 或 program，保留曲间音量关系。
+gain_db = 0.0                           # 整段手动增益，单位 dB；0 不变，-3 降低，+3 提高。
+peak_ceiling_db = -1.0                   # 编码前真峰值上限，单位 dBTP（4 倍过采样测量）。
+# 峰值保护只整体降音量，不硬削波、不压缩动态；AAC 编码后峰值可能变化，不保证编码后上限。
+# mono 自动复制为 stereo；只支持一/双声道。采样率不同会自动重采样。
+
+# ---- 播放顺序：想自动编排时只改 mode 即可 ----
+[audio.arrangement]
+enabled = true                       # true 开启编排；false 严格按 TOML 顺序，并优先于下面的 mode。
+mode = "automatic"                      # 默认 "automatic" 分析真实音频后重排；"configuration" 严格按 TOML 顺序。
+analysis_seconds = 15.0                  # 每首“开头、结尾”各分析最多 15 秒（1～60），不是交叠 15 秒。
+keep_first = false                      # 自动模式设 true：固定 TOML 第一首为开场，其余再排序。
+energy_curve = [0.2, 0.65, 1.0, 0.4]     # 相对能量：舒缓 → 升温 → 高点 → 收尾；可填 2～32 个 0～1 的点。
+# 下面是选曲评分权重，通常不需要修改：
+# energy_weight = 1.0                    # 按逐曲响度/增益调整后的能量拟合上方曲线。
+# transition_weight = 0.75              # 优先让上一首结尾与下一首开头的 RMS 能量接近。
+# tempo_weight = 0.35                   # 优先接近的估计节奏，兼容半拍/双倍拍。
+# brightness_weight = 0.25              # 优先衔接音色亮度接近的首尾。
+# inspect 输出实际顺序（原配置索引从 0 开始）和测量值。节奏估计并非保证准确，不会变速或自动对拍。
+# 排序本身不改混音；混入时机由下面的 transitions 独立控制。
+
+# 日常省略整个 transitions 表即可使用 smart 默认值。
+# 本演示特意用 fixed，保持原创短曲一小节的交叠与 30 秒成片；普通歌单可改成 smart。
+# smart：识别安静尾巴/前奏，提前混入，匹配局部响度，平滑增益/音色/空间尾音。
+# adaptive：上一版仅搜索交叠长度；fixed：只按配置秒数与曲线淡化。
+[audio.transitions]
+enabled = true                       # false 关闭所有融合，直接拼接，进度条没有黄色区域。
+mode = "fixed"                       # 项目默认 smart；这里只为演示固定一小节。
+min_seconds = 4.0                    # 自动模式最短交叠，秒；短曲安全缩短。
+max_seconds = 24.0                   # 最长交叠，秒（<=60）；过长安静尾巴可自行增加。
+analysis_seconds = 40.0              # 首尾扫描范围，秒；>= max_seconds，最大 120。
+tail_threshold_db = -24.0            # 相对活跃尾部音量，低于此值的连续尾巴视为低能量。
+fade_threshold_db = -6.0             # 检测已渐弱尾部/尚未进入主体的前奏，范围 -12～-1。
+max_gain_db = 3.0                    # smart 局部匹配/补偿上限 0～6 dB；不会无限放大静音。
+tone_strength = 0.35                # 频段交接强度 0～1；0 关闭。
+reverb_mix = 0.08                   # 少量立体声扩散尾音，0～0.25；0 关闭。
+release_seconds = 1.0               # 效果起止平滑回到原声的时间，0.1～4 秒。
+
+# ---- 常用响度设置：通常保留下面三项即可 ----
+[audio.loudness]
+mode = "track"                          # "track" 逐曲统一；"program" 整段统一；"off" 关闭自动响度调整。
+target_lufs = -16.0                      # 想要的综合响度（LUFS）；越负越安静。-16 是本项目默认目标。
+max_gain_db = 12.0                       # 自动放大最多 12 dB，避免把很安静的录音推得过响。
+# LUFS 不等于峰值：峰值保护优先；动态很大的音乐可能达不到目标，inspect 会报告实际值。
+# 静音或短于 400 ms 的片段无法可靠测量综合响度，不会因此被自动放大。
+# 处理顺序：裁剪/重采样 → 逐曲 LUFS（track 模式）→ 每首 gain_db → 可选自动编排 → 交叉淡化混音
+#          → 整段 LUFS（program 模式）→ 上面的整体 gain_db → 真峰值保护。
+# track 模式保留每首歌手动增益差异；program 模式保留歌曲之间的响度关系。
+# 不剪掉歌曲里的静音；不改变时长或节奏。省略整个 loudness 表也默认 track；无缝专辑请明确选 off/program。
+
+# ---- 常用画面选择（这些参数不会改变声音）----
+[visual]
+waveform = false                        # true 显示波形；样式见下方 waveform_style。
+spectrum = true                         # true 显示频谱；同时打开二者会在可视化区域内分区显示。
+triangles = 0                           # 默认关闭三角形；想开启可填 48～72，最多 256；样式见下方。
+seed = 673742                           # 固定初始分布；改变整数可换一组位置。
+# 没有有效音频或持续静音时，波形和频谱都隐藏；不会留下假柱子、峰值帽或中线。
+
+# ---- 以下属于高级外观设置；不改也能直接使用 ----
+[visual.progress_style]
+scope = "track"                         # 默认当前歌曲进度；时间随标题切换。"program" 才是整段视频进度。
+# 下一首在切换前已参与淡入，所以切换后的计时显示它真实已播放的位置，不伪造从 0 开始。
+color = "#FFFFFF"                       # 默认白色已播放部分；可改任意 #RRGGBB，例如 #B8AFDE。
+track_color = "#FFFFFF"                 # 未播放部分，与下面的不透明度一起生效。
+track_opacity = 0.15
+show_overlap = true                     # 黄色对应真正混音的样本区间；没有交叠就没有黄色，不画黑色章节线。
+overlap_color = "#EAC768"
+overlap_opacity = 0.80
+corner_radius = 2.0                     # 参考像素圆角；0 为直角，最大自动限制为条高的一半。
+show_counter = true                     # false 隐藏歌曲计数。
+counter_right_inset = 0.0               # 0 让计数可见右边缘贴齐进度条右端；正数向内收。
+
+[visual.artwork_style]
+corner_radius = 24.0                    # 稍圆的默认封面；0 为直角。按短边 1080 缩放，可自行改大小。
+border_width = 3.0                      # 0 去掉封面浅色细边。
+background_blur = 18.0                  # 仅背景虚化：96×96 工作图上的高斯 sigma（0～48）；封面不做模糊。
+
+[visual.triangle_style]
+preset = "layered"                      # "layered"：深浅/大小不同的实心叠层；"border"：等尺寸边框，可调厚度。
+# 上方 triangles 为 0 时，这些设置不会开启三角形。只想换预设时改 preset，mode 保持 auto。
+mode = "auto"                           # auto 跟随预设；也可强制 filled 实心、outline 空心、both 填充加轮廓。
+color_light = "#343943"                 # 第二个色端；layered 随机深浅，border 从上到下渐变；同色可关闭渐变。
+color = "#080A10"                        # 三角形颜色，必须是 #RRGGBB；默认近黑色。
+opacity = 0.28                          # 不透明度 0..1；越大越明显，重叠区域会更深。
+min_size = 100.0                        # layered 最小边长；以画布短边 1080 像素为基准，随分辨率缩放。
+max_size = 360.0                        # layered 最大边长；所有三角形朝上、等边，不随机旋转。
+speed = 24.0                            # 基准上浮速度，像素/秒；0 静止。大三角形略快。
+stroke_width = 1.5                      # layered 的 outline/both 线宽；border 使用 thickness。
+# size = 120.0                         # border 的统一边长；与 min_size/max_size 独立。
+# thickness = 0.04                     # border 相对厚度 0..1：0 隐藏边框，1 填满，通常 0.02～0.12。
+music_reactivity = 0.15                  # 音乐能量对不透明度的相对影响，0 关闭，范围 0..1。
+
+[visual.spectrum_style]
+color = "#FFFFFF"                       # 默认白色宽柱；换颜色只改这一项，例如 "#B9DCEC"。
+corner_radius = 0.0                    # 频谱柱圆角，0 保持方块；单位同上，自动限制在柱宽/高度内。
+bar_width = 14.5                        # 自动模式的目标柱宽，以短边 1080 为基准；越大柱子越少。
+# bars = 80                            # 可选强制固定柱数 8..256；写了它就不再自适应，bar_width 不生效。
+# 默认按实际区域宽度调整：16:9 为 80、9:16 为 40、1:1 与 3:4 为 43。等比缩小预览不改变柱数。
+gap = 0.30                              # 空隙占每格的比例 0..0.9；越小柱子越粗/紧，越大空隙越宽。
+peak_caps = false                       # 可选的同色峰值小横线；默认关闭，保留干净柱形。
+floor_db = -60.0                        # 最低显示幅度（dBFS）；0 dBFS 在顶端，越负能看见越小的信号。
+release_ms = 180.0                      # 柱子从满高回落到零的时间（毫秒）；0 为立即回落。
+peak_hold_ms = 250.0                    # 峰值横线停留时间（毫秒），只在 peak_caps=true 时可见。
+peak_fall_ms = 800.0                    # 峰值横线从满高落到底部的时间（毫秒）。
+# 频谱范围 30 Hz～16 kHz，横轴为对数频率。左右声道分别分析，不会因反相而消失。
+
+[visual.waveform_style]
+mode = "scope"                          # "scope" 实时左右声道示波线；"envelope" 前后各 6 秒的波形包络。
+color = "#FFFFFF"                       # 波形颜色 #RRGGBB。
+window_ms = 40.0                        # 仅 scope：显示最近多少毫秒的真实 PCM，范围 5..200。
+gain = 1.5                              # 只放大波形的视觉高度，不放大音频；太高会在显示范围内截平。
+line_width = 1.5                        # 仅 scope：线宽，以画布短边 1080 为基准缩放。
+# envelope 的亮半边为过去、暗半边为未来；音乐范围外和无声位置不画占位点。
+
+[fonts]
+latin = "../assets/fonts/Roboto-Regular.ttf"       # 拉丁文字和数字。数字启用等宽特性。
+cjk = "../assets/fonts/DreamHanSansCN-W10.ttf"      # 只用于 CJK 文字与全角标点。
+# 仓库已附这两个字体及许可。自选字体填 TTF/OTF 路径；首版使用文件中的第一个 face。
+# 整个 fonts 表可以省略，使用可执行文件内置的这两款字体；只填写的路径才会覆盖内置字体。
+# 缺字或明确填写的字体文件不存在时会报错，不静默替换。
+
+# 每个 [[tracks]] 块添加一首歌；configuration 按书写顺序，automatic 可以重排。
+# 继续添加歌曲：复制整个 [[tracks]] 段到文件末尾，再修改该段内容。
+[[tracks]]
+audio = "media/first.wav"                # 必填：本地音频路径。首选无损 WAV/FLAC。
+cover = "media/first.png"
+# cover_seed = 42  # 省略 cover 时可选：自动封面的变化种子，与 CLI cover --seed 相同。                # 可选：PNG/JPEG 封面，居中裁成方形。删掉本行则生成占位封面。
+title = "晨光 / Morning light"           # 可选：画面标题；省略用音频文件名。单行过长以 ... 截断。
+artist = "Audorchid"                     # 作者/演唱者；可填空字符串 ""。
+trim_start_seconds = 0.0                 # 从源音频第几秒开始，0.0 表示从头开始。
+# trim_end_seconds = 8.0                 # 可选：到源音频第几秒结束（不是截取时长）；不写就是播到末尾。
+gain_db = 0.0                           # 逐曲 LUFS 调整后的手动增益；0 不变，-1 表示这首稍轻一些。
+
+[[tracks]]
+audio = "media/second.wav"
+cover = "media/second.png"
+title = "月下 / Moonrise"
+artist = "Audorchid"
+trim_start_seconds = 0.0
+gain_db = -1.0

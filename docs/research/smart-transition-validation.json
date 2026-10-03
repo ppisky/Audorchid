@@ -1,0 +1,13 @@
+{
+  "default_smart_and_explicit_configuration_order": "passed",
+  "early_quiet_tail_intro_and_local_lufs": "passed",
+  "retained_material_and_no_three_track_overlap": "passed",
+  "actual_pcm_hole_reduction": {
+    "fixed_minimum_half_second_rms_db": -150.0,
+    "smart_minimum_half_second_rms_db": -18.640846738098332
+  },
+  "exact_full_pcm_excerpt_and_peak_ceiling": "passed",
+  "effects_change_actual_pcm_and_can_be_disabled": "passed",
+  "invalid_controls_rejected": "passed",
+  "default_smart_h264_aac_mp4_full_decode": "passed"
+}
