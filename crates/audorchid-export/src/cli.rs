@@ -379,6 +379,8 @@ mod tests {
     #[test]
     fn command_paths_use_terminal_and_overwrite_cannot_replace_source() {
         let mut p = project();
+        let source = tempfile::NamedTempFile::new().unwrap();
+        p.tracks[0].audio = source.path().to_owned();
         let input = p.tracks[0].audio.clone();
         let options = OutputOptions {
             output: Some("new-video.mp4".into()),

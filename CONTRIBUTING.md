@@ -13,7 +13,7 @@ python scripts/verify_transition_preview.py --binary target/debug/audorchid.exe
 python scripts/check_repository.py
 ```
 
-CI runs these checks using original synthetic audio. The two GPU sequence tests are explicitly ignored by ordinary cargo test; run them locally after generating demo assets when changing rendering:
+CI runs these checks using original synthetic audio. Ordinary tests must create their own temporary inputs and work without generated demo assets. The two GPU sequence tests are explicitly ignored by ordinary cargo test; run them locally after generating demo assets when changing rendering:
 
 ```powershell
 cargo run --locked -- demo
